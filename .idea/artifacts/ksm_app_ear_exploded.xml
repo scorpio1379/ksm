@@ -21,21 +21,16 @@
         <element id="artifact" artifact-name="ksm-objects:ejb exploded" />
       </element>
       <element id="directory" name="lib">
-        <element id="library" level="project" name="Maven: org.springframework.data:spring-data-neo4j:3.1.6.RELEASE" />
-        <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.2.14.RELEASE" />
-        <element id="library" level="project" name="Maven: org.springframework:spring-context:3.2.14.RELEASE" />
-        <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.2.14.RELEASE" />
-        <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
-        <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.2.14.RELEASE" />
-        <element id="library" level="project" name="Maven: org.springframework:spring-aspects:3.2.14.RELEASE" />
-        <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.7.4" />
-        <element id="library" level="project" name="Maven: org.springframework:spring-core:3.2.14.RELEASE" />
-        <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.2.14.RELEASE" />
-        <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.6" />
-        <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.8.6.RELEASE" />
-        <element id="library" level="project" name="Maven: org.neo4j:neo4j-cypher-dsl:2.0.1" />
-        <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.12" />
-        <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.12" />
+        <element id="library" level="project" name="Maven: org.neo4j:neo4j-ogm-core:3.0.0-M01" />
+        <element id="library" level="project" name="Maven: org.neo4j:neo4j-ogm-api:3.0.0-M01" />
+        <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.7.1" />
+        <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.0" />
+        <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.1" />
+        <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.21" />
+        <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
+        <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
+        <element id="library" level="project" name="Maven: org.apache.commons:commons-collections4:4.1" />
+        <element id="library" level="project" name="Maven: io.github.lukehutch:fast-classpath-scanner:2.0.18" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j:3.2.0" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-kernel:3.2.0" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-graphdb-api:3.2.0" />
@@ -45,7 +40,6 @@
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-primitive-collections:3.2.0" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-unsafe:3.2.0" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-io:3.2.0" />
-        <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.3.2" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-csv:3.2.0" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-logging:3.2.0" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-lucene-upgrade:3.2.0" />

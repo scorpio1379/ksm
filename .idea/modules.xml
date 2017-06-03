@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ksm.iml" filepath="$PROJECT_DIR$/ksm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ksm-app/ksm-app.iml" filepath="$PROJECT_DIR$/ksm-app/ksm-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ksm-objects/ksm-objects.iml" filepath="$PROJECT_DIR$/ksm-objects/ksm-objects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ksm-web/ksm-web.iml" filepath="$PROJECT_DIR$/ksm-web/ksm-web.iml" />
+    </modules>
+  </component>
+</project>

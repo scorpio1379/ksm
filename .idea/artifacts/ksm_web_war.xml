@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ksm-web:war">
+    <output-path>$PROJECT_DIR$/ksm-web/target</output-path>
+    <root id="archive" name="ksm-web.war">
+      <element id="artifact" artifact-name="ksm-web:war exploded" />
+    </root>
+  </artifact>
+</component>

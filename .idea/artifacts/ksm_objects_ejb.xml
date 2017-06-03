@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="ksm-objects:ejb">
+    <output-path>$PROJECT_DIR$/ksm-objects/target</output-path>
+    <root id="archive" name="ksm-objects.jar">
+      <element id="artifact" artifact-name="ksm-objects:ejb exploded" />
+    </root>
+  </artifact>
+</component>

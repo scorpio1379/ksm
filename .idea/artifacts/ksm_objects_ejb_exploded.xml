@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="ksm-objects:ejb exploded">
+    <output-path>$PROJECT_DIR$/ksm-objects/target/ksm-objects</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ksm-objects/ejb/EJB" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ksm-objects/target/ksm-objects/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="ksm-objects" />
+    </root>
+  </artifact>
+</component>

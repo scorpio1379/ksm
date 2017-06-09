@@ -31,21 +31,39 @@
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-core</artifactId>
+            <scope>provided</scope>
         </dependency>
         <!-- -->
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-embedded-driver</artifactId>
+            <scope>provided</scope>
         </dependency>
-        <!--
+        <!-- https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver -->
+
+
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-bolt-driver</artifactId>
-        </dependency> -->
+            <version>3.0.0-M01</version>
+            <scope>provided</scope>
+        </dependency><!-- -->
+
         <!-- https://mvnrepository.com/artifact/org.neo4j/neo4j-community -->
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-bolt</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss</groupId>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="ejb" url="file://$PROJECT_DIR$/config-managers" />
+    <file type="ejb" url="file://$PROJECT_DIR$/ksm-core" />
+    <file type="ejb" url="file://$PROJECT_DIR$/ksm-logger" />
     <file type="ejb" url="file://$PROJECT_DIR$/ksm-objects" />
     <file type="javaeeApplication" url="file://$PROJECT_DIR$/ksm-app" />
     <file type="web" url="file://$PROJECT_DIR$/ksm-web" />

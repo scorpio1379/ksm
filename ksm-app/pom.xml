@@ -36,11 +36,74 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <dependency>
+            <groupId>ru.iteco.ip.ksm</groupId>
+            <artifactId>ksm-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>ru.iteco.ip.ksm</groupId>
+            <artifactId>config-managers</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>ru.iteco.ip.ksm</groupId>
+            <artifactId>ksm-logger</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+
+
+
+
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-bolt-driver</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-bolt</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-embedded-driver</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
     <build>
         <finalName>${project.artifactId}</finalName>
+
+        <resources>
+            <resource>
+                <directory>src/main/application</directory>
+            </resource>
+            <!--<resource>
+                <directory>src/main/application/cfg/</directory>
+            </resource>-->
+        </resources>
+
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -76,6 +139,7 @@
                     <jbossHome>C:\AS\wildfly-10.1.0.Final</jbossHome>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

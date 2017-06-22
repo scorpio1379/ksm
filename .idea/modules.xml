@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/config-managers/config-managers.iml" filepath="$PROJECT_DIR$/config-managers/config-managers.iml" />
       <module fileurl="file://$PROJECT_DIR$/ksm.iml" filepath="$PROJECT_DIR$/ksm.iml" />
       <module fileurl="file://$PROJECT_DIR$/ksm-app/ksm-app.iml" filepath="$PROJECT_DIR$/ksm-app/ksm-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ksm-core/ksm-core.iml" filepath="$PROJECT_DIR$/ksm-core/ksm-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ksm-logger/ksm-logger.iml" filepath="$PROJECT_DIR$/ksm-logger/ksm-logger.iml" />
       <module fileurl="file://$PROJECT_DIR$/ksm-objects/ksm-objects.iml" filepath="$PROJECT_DIR$/ksm-objects/ksm-objects.iml" />
       <module fileurl="file://$PROJECT_DIR$/ksm-web/ksm-web.iml" filepath="$PROJECT_DIR$/ksm-web/ksm-web.iml" />
     </modules>

@@ -5,6 +5,5 @@ package ru.iteco.ip.ksm.ksmobjects;
  */
 public enum KSMObjectType {
     CI
-    , RELATION
     , INDICATOR
 }

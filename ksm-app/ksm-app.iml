@@ -20,6 +20,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.neo4j:neo4j-ogm-api:3.0.0-M01" level="project" />
+    <orderEntry type="library" name="Maven: org.neo4j.driver:neo4j-java-driver:1.4.0-rc1" level="project" />
+    <orderEntry type="library" name="Maven: org.neo4j:neo4j-ogm-core:3.0.0-M01" level="project" />
+    <orderEntry type="library" name="Maven: org.neo4j:neo4j-ogm-embedded-driver:3.0.0-M01" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.wildfly:wildfly-ee:10.1.0.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.glassfish:javax.enterprise.concurrent:1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.jboss.metadata:jboss-metadata-common:10.0.0.Final" level="project" />

@@ -1,4 +1,4 @@
-package ru.iteco.ksm.web.rest;
+package ru.iteco.ip.ksm.web.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

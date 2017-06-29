@@ -25,6 +25,34 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>ru.iteco.ip.ksm</groupId>
+            <artifactId>ksm-objects</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Import the JAX-RS API, we use provided scope as the API is included in WildFly -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ws.rs</groupId>
+            <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--
+                <dependency>
+                    <groupId>org.jboss.resteasy</groupId>
+                    <artifactId>resteasy-servlet-initializer</artifactId>
+                    <version>${resteasy.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.resteasy</groupId>
+                    <artifactId>resteasy-client</artifactId>
+                 version>${resteasy.version}</version>
+                </dependency> -->
+                <!--<dependency>
+                    <groupId>org.jboss.resteasy</groupId>
+                    <artifactId>resteasy-jaxrs</artifactId>
+                    <version>${resteasy.version}</version>
+                </dependency> -->
         <!--
         <dependency>
             <groupId>javax.ejb</groupId>
@@ -39,11 +67,11 @@
             <scope>provided</scope>
         </dependency>
         -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-core</artifactId>
         </dependency>
-        <!-- -->
+
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-embedded-driver</artifactId>
@@ -51,12 +79,12 @@
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-bolt-driver</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.neo4j/neo4j-community -->
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.neo4j/neo4j-community
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>

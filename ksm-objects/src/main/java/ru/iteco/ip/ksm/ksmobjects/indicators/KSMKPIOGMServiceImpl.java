@@ -7,9 +7,9 @@ import ru.iteco.ip.ksm.ksmobjects.abstracts.KSMBaseObject;
 /**
  * Created by Scorpio on 21.06.2017.
  */
-public class KSMKPIOGMServiceImpl extends KSMBaseIndicatorOGMServiceImpl<KSMBaseObject<KSMBaseIndicator>> {
+public class KSMKPIOGMServiceImpl<KSMKPI extends KSMBaseIndicator<KSMKPI>> extends KSMBaseIndicatorOGMServiceImpl<KSMBaseIndicator<KSMKPI>> {
     @Override
     public Class getEntityType() {
-        return KSMKPI.class;
+        return ru.iteco.ip.ksm.ksmobjects.indicators.KSMKPI.class;
     }
 }

@@ -36,6 +36,9 @@
         <version.jboss.bom>10.1.1.Final</version.jboss.bom>
         <version.wildfly>10.1.0.Final</version.wildfly>
 
+        <!-- Define RESTEasy version for wildfly AS-->
+        <resteasy.version>3.0.14.Final</resteasy.version>
+
         <!-- other plugin versions -->
         <version.compiler.plugin>3.5.1</version.compiler.plugin>
         <version.ear.plugin>2.10.1</version.ear.plugin>
@@ -48,6 +51,20 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-7.0</artifactId>
+                <version>1.0.4.Final</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>wildfly-javaee7-with-tools</artifactId>
+                <version>${version.jboss.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-releasetrain</artifactId>
@@ -120,6 +137,7 @@
 
     </dependencies>
     <build>
+        <finalName>${project.artifactId}</finalName>
         <pluginManagement>
             <plugins>
                 <!-- The WildFly plugin deploys your ear to a local JBoss

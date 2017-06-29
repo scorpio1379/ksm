@@ -10,13 +10,9 @@ import javax.ejb.Stateless;
  * Created by Scorpio on 21.06.2017.
  */
 @Stateless
-public class KSMCIOGMServiceImpl<T extends KSMBaseCI<T>> extends KSMBaseCIOGMServiceImpl<KSMBaseObject<KSMBaseCI>> implements KSMCIService{
+public class KSMCIOGMServiceImpl<CI extends KSMBaseCI<CI>>
+        extends KSMBaseCIOGMServiceImpl {
 
-
-    @Override
-    public Class getEntityType() {
-        return KSMCI.class;
-    }
 
 
 }

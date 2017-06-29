@@ -14,6 +14,7 @@
     <name>KSM Application EAR</name>
     <dependencyManagement>
         <dependencies>
+
         </dependencies>
     </dependencyManagement>
 

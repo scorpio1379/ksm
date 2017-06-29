@@ -13,8 +13,7 @@ public class KSMObjectApiImpl {
     @Inject
     private KSMCIService ciService;
 
-    public getAllServiceCIs(){
-        ciService.
+    public void getAllServiceCIs(){
 
     }
 }

@@ -85,5 +85,6 @@
     <orderEntry type="module" module-name="config-managers" />
     <orderEntry type="module" module-name="ksm-logger" />
     <orderEntry type="module" module-name="ksm-objects" />
+    <orderEntry type="library" name="Maven: javax:javaee-api:7.0" level="project" />
   </component>
 </module>

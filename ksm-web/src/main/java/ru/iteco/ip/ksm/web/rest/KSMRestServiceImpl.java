@@ -1,14 +1,15 @@
 package ru.iteco.ip.ksm.web.rest;
 
-import ru.iteco.ip.ksm.ksmobjects.KSMObjectApiBean;
+import ru.iteco.ip.ksm.ksmobjects.api.IKSMObjectApiRemote;
+import ru.iteco.ip.ksm.web.rest.models.KSMServiceModel;
+import ru.iteco.ip.ksm.web.rest.models.KSMServiceModelImpl;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
 /**
  * Created by Scorpio on 21.06.2017.
@@ -19,8 +20,9 @@ import javax.ws.rs.Produces;
 @Consumes({ "application/xml", "application/json" })
 public class KSMRestServiceImpl {
 
-    @EJB(beanName = "KSMObjectApiEJB")
-    private KSMObjectApiBean ksmObjApi;
+    @EJB
+    //@Inject @Default
+    private IKSMObjectApiRemote ksmObjectApi;
 
 
     public KSMRestServiceImpl() {
@@ -30,6 +32,13 @@ public class KSMRestServiceImpl {
     @Path("/getModels")
     @Produces("application/json")
     public String getServiceModels(){
+        ksmObjectApi.test();
         return "someThing";
+    }
+    @POST
+    @Path("/loadServiceFromXML")
+    @Consumes({"application/xml", "text/xml", "application/json"})
+    public String loadServiceFromXML(KSMServiceModelImpl ksmServiceModel){
+        return "youre string is" + ksmServiceModel;
     }
 }

@@ -6,12 +6,9 @@ import java.util.UUID;
  * Created by Scorpio on 21.06.2017.
  */
 /*T extends KSMBaseCI <T>    KSMBaseObject<KSMBaseCI<T>>*/
-public  class KSMBaseCIOGMServiceImpl<T extends KSMBaseObject<T>>
+public abstract class KSMBaseCIOGMServiceImpl<KSMBaseCI>
         extends BaseOGMServiceImpl<KSMBaseObject>
-        implements BaseCIService<T>{
+        implements BaseCIService<KSMBaseCI>{
 
-    @Override
-    public Class getEntityType() {
-        return  KSMBaseCI.class;
-    }
+
 }

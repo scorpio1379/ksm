@@ -9,4 +9,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface KSMCIService {
+    KSMCI craeteRegularCI(String uuid , String name, KSMCIType type);
+    KSMCI createServiceCI(String uuid , String name);
+
 }

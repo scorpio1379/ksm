@@ -35,9 +35,8 @@ public abstract class BaseOGMServiceImpl<T extends KSMBaseObject> implements Bas
         return session.load(getEntityType(), id, DEPTH_ENTITY);
     }
 
-    @Override
-    public T findByKsmObjId(UUID ksmObjId){
-        String cypherString = "match (ksmObject{ksmObjId:"+ ksmObjId.toString()+"}) return ksmObject";
+    public T findByKsmObjId(String ksmObjId){
+        String cypherString = "match (ksmObject{ksmObjId:'"+ ksmObjId.toString()+"'}) return ksmObject";
         Iterable<T> ksmObjectsIterable = session.query(getEntityType(), cypherString, Collections.EMPTY_MAP);
         List<T> ksmObjects = new ArrayList<>();
         ksmObjectsIterable.forEach(ksmObjects::add);
@@ -54,6 +53,10 @@ public abstract class BaseOGMServiceImpl<T extends KSMBaseObject> implements Bas
             throw new ArrayIndexOutOfBoundsException("there are many node in GDB with property named ksmObjId with value equal to  " +ksmObjId.toString() );
         }
     }
+    @Override
+    public T findByKsmObjId (UUID ksmObjId){
+        return findByKsmObjId(ksmObjId.toString());
+    }
 
     @Override
     public void delete(Long id) {
@@ -69,7 +72,22 @@ public abstract class BaseOGMServiceImpl<T extends KSMBaseObject> implements Bas
     @Override
     public T createOrUpdate(T ksmObject) {
         session.save(ksmObject, DEPTH_ENTITY);
-        return find(ksmObject.getId());
+        Long lId= ksmObject.getId();
+        String uuid = ksmObject.getKsmObjId();
+        T obj = null;
+        try{
+            obj = find(lId);
+        } catch (Exception e){
+            System.out.println(" error trying to get object by long id " + e.getMessage());
+            obj = findByKsmObjId(ksmObject.getKsmObjId());
+        }finally {
+            if(obj!=null){
+                return obj;
+            }else{
+                logger.error("Can not get Node from GDB  by Long Id ={} nor by uuid {}" , lId,uuid);
+                throw new IndexOutOfBoundsException("Can not get Node from GDB  by Long Id =" + lId + " nor by uuid " + uuid);
+            }
+        }
     }
     public abstract Class<T> getEntityType();
 }

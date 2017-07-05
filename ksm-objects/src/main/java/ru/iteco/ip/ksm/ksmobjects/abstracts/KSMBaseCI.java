@@ -12,7 +12,7 @@ import java.util.List;
  * Created by Scorpio on 02.06.2017.
  */
 @NodeEntity
-public class KSMBaseCI<T extends KSMBaseCI <T> > extends KSMBaseObject<KSMBaseCI<T>> {
+public abstract class KSMBaseCI<T extends KSMBaseCI <T> > extends KSMBaseObject<T> {
     protected String name;
     protected String description;
     private String ksmCiType;

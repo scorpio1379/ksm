@@ -8,7 +8,11 @@ import ru.iteco.ip.ksm.ksmobjects.abstracts.KSMBaseIndicator;
  * Created by Scorpio on 20.06.2017.
  */
 public class KSMHI<T> extends KSMBaseIndicator<KSMHI<T>> {
+
     protected String hiType;
+
+    protected String itemId;
+
     @Relationship(type = "ATTACHED_HI")
     private KSMBaseCI<?> attachedToCI;
 

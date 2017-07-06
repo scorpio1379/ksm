@@ -15,14 +15,25 @@ import ru.iteco.ip.ksm.ksmobjects.abstracts.KSMBaseIndicator;
 @NodeEntity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class KSMKPI<T extends KSMKPI<T>> extends KSMBaseIndicator<KSMKPI<T>> {
-    private String calculationRule;
+    private String ruleFileName;
     private String kpiType;
+    private String rule;
     @Relationship(type = "ATTACHED_KPI")
     private KSMBaseCI attachedToCI;
 
     @JsonCreator
-    public KSMKPI(@JsonProperty("tmpId") String uuid , @JsonProperty("name") String name) {
+    public KSMKPI(
+            @JsonProperty("tmpId") String uuid
+            ,@JsonProperty("name") String name
+            ,@JsonProperty("ruleFileName") String ruleFileName
+            ,@JsonProperty("displayName") String displayName
+            ,@JsonProperty("rule") String rule
+            ,@JsonProperty("kpiType") String kpiType
+    ) {
         super(uuid , name);
+        this.ruleFileName = ruleFileName;
+        this.rule = rule;
+        this.kpiType = kpiType;
         this.indicatorType = KSMIndicatorType.KPI;
     }
 

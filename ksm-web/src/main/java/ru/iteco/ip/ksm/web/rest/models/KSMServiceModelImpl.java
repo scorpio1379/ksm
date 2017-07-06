@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import ru.iteco.ip.ksm.ksmobjects.cis.KSMCI;
 import ru.iteco.ip.ksm.ksmobjects.indicators.KSMKPI;
+import ru.iteco.ip.ksm.ksmobjects.relationships.DependentOnCIRelationShip;
 
 import java.io.Serializable;
 import java.util.List;
@@ -40,7 +42,11 @@ public class KSMServiceModelImpl implements KSMServiceModel , Serializable {
     @JsonProperty
     public List<KSMKPI> kpis;
     @JsonCreator
-    public KSMServiceModelImpl(@JsonProperty("name") String name , @JsonProperty("KPIs") List<KSMKPI> kpis) {
+    public KSMServiceModelImpl(
+            @JsonProperty("name") String name
+            ,@JsonProperty("KPIs") List<KSMKPI> kpis
+            ,@JsonProperty("Services") List<KSMCI> cis
+            ,@JsonProperty("Relationships") List<DependentOnCIRelationShip> relationShips) {
         this.name = name;
         this.kpis = kpis;
     }

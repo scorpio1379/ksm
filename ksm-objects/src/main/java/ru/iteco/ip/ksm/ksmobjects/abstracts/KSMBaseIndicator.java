@@ -11,6 +11,7 @@ import ru.iteco.ip.ksm.ksmobjects.KSMObjectType;
 @NodeEntity
 public  abstract class KSMBaseIndicator<T extends KSMBaseIndicator<T>> extends KSMBaseObject<T> {
     protected String name;
+    protected String description;
     protected String value;
     protected KSMIndicatorStatus status;
     protected KSMIndicatorType indicatorType;

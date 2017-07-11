@@ -5,6 +5,7 @@ import ru.iteco.ip.ksm.ksmobjects.api.IKSMObjectApiLocal;
 import ru.iteco.ip.ksm.ksmobjects.api.IKSMObjectApiRemote;
 import ru.iteco.ip.ksm.ksmobjects.cis.KSMCI;
 import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIService;
+import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIType;
 import ru.iteco.ip.ksm.ksmobjects.factories.KSMObjectFactory;
 import ru.iteco.ip.ksm.ksmobjects.factories.KSMObjectsFactoryBean;
 import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
@@ -45,5 +46,9 @@ public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLoca
     @Override
     public KSMCI createService(String uuid, String name) {
         return ksmObjFab.createService(uuid , name);
+    }
+    @Override
+    public KSMCI craeteCI(String uuid , String name , KSMCIType ciType){
+        return ksmObjFab.createKSMCI(uuid,name,ciType);
     }
 }

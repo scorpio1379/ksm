@@ -3,6 +3,8 @@ package ru.iteco.ip.ksm.ksmobjects.abstracts;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import ru.iteco.ip.ksm.ksmobjects.KSMObjectType;
+import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIProperty;
+import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIType;
 import ru.iteco.ip.ksm.ksmobjects.indicators.KSMKPI;
 
 import java.util.ArrayList;
@@ -15,24 +17,27 @@ import java.util.List;
 public abstract class KSMBaseCI<T extends KSMBaseCI <T> > extends KSMBaseObject<T> {
     protected String name;
     protected String description;
-    private String ksmCiType;
+    protected KSMCIType ksmCiType;
     protected String statusKPIksmObjId;
+
+    protected List<KSMCIProperty> ksmCIproperties;
+
 
     /**
      * Основные показатели эффективности  которые "привязаные" к данному КЭ
      */
     @Relationship(type = "KSM_DEPENDENT_ON_RELATION",direction = "INCOMING")
-    private List<KSMKPI> attachedKPIs = new ArrayList<>();
+    protected List<KSMKPI> attachedKPIs = new ArrayList<>();
     /**
      * список родительских КЭ , которые зависят  от данного КЭ по связи типа DEPENDENT_ON
      */
     @Relationship(type = "DEPENDENT_ON",direction = "INCOMING")
-    private List<KSMBaseCI<?>> ascendentCis = new ArrayList<>();
+    protected List<KSMBaseCI<?>> ascendentCis = new ArrayList<>();
     /**
      * список дочерних КЭ , от которых зависит данный КЭ по типу связи DEPENDENT_ON
      */
     @Relationship(type = "DEPENDENT_ON",direction = "OUTGOING")
-    private List<KSMBaseCI<?>> dependentCis = new ArrayList<>();
+    protected  List<KSMBaseCI<?>> dependentCis = new ArrayList<>();
 
 
 
@@ -62,7 +67,7 @@ public abstract class KSMBaseCI<T extends KSMBaseCI <T> > extends KSMBaseObject<
         this.description = description;
     }
 
-    public String getKsmCiType() {
+    public KSMCIType getKsmCiType() {
         return ksmCiType;
     }
 

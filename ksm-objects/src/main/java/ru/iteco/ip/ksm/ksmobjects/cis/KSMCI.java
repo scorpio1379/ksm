@@ -9,14 +9,13 @@ import ru.iteco.ip.ksm.ksmobjects.abstracts.KSMBaseCI;
 @NodeEntity
 public class KSMCI<T> extends KSMBaseCI<KSMCI<T>> {
 
-    private  KSMCIType ciType;
     public KSMCI(String uuid, String name) {
         super(uuid, name);
-        this.ciType = KSMCIType.REGULAR;
+        this.ksmCiType = KSMCIType.REGULAR;
     }
     public KSMCI(String uuid, String name ,KSMCIType type) {
         super(uuid, name);
-        this.ciType = type;
+        this.ksmCiType = type;
     }
 
 

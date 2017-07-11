@@ -2,6 +2,7 @@ package ru.iteco.ip.ksm.ksmobjects.factories;
 
 import ru.iteco.ip.ksm.ksmobjects.cis.KSMCI;
 import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIService;
+import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIType;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -26,5 +27,9 @@ public class KSMObjectsFactoryBean implements KSMObjectFactory {
     public KSMCI createService(String uuid, String name) {
         KSMCI srvcCi = ksmciService.createServiceCI(uuid, name);
         return srvcCi;
+    }
+    @Override
+    public KSMCI createKSMCI(String uuid , String name , KSMCIType ksmciType){
+       return  ksmciService.craeteRegularCI(uuid, name, ksmciType);
     }
 }

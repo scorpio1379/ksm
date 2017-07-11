@@ -1,6 +1,9 @@
 package ru.iteco.ip.ksm.web.rest;
 
 import ru.iteco.ip.ksm.ksmobjects.api.IKSMObjectApiRemote;
+import ru.iteco.ip.ksm.ksmobjects.cis.KSMCI;
+import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIType;
+import ru.iteco.ip.ksm.ksmobjects.indicators.KSMKPI;
 import ru.iteco.ip.ksm.web.rest.models.KSMServiceModel;
 import ru.iteco.ip.ksm.web.rest.models.KSMServiceModelImpl;
 
@@ -39,6 +42,7 @@ public class KSMRestServiceImpl {
     @Path("/loadServiceFromXML")
     @Consumes({"application/xml", "text/xml", "application/json"})
     public String loadServiceFromXML(KSMServiceModelImpl ksmServiceModel){
+        KSMCI serviceCI = ksmObjectApi.craeteCI(ksmServiceModel.tmpId, ksmServiceModel.name, KSMCIType.SERVICE);
         return "youre string is" + ksmServiceModel;
     }
 }

@@ -44,11 +44,47 @@ public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLoca
     }
 
     @Override
-    public KSMCI createService(String uuid, String name) {
-        return ksmObjFab.createService(uuid , name);
+    public String createService(String uuid, String name) {
+        KSMCI ci = ksmObjFab.createKSMCI(uuid, name , KSMCIType.SERVICE);
+        return ci.getKsmObjId();
     }
     @Override
-    public KSMCI craeteCI(String uuid , String name , KSMCIType ciType){
-        return ksmObjFab.createKSMCI(uuid,name,ciType);
+    public String createCI(String uuid , String name , String ciType)  {
+        KSMCIType ksmciType;
+        try {
+            ksmciType = KSMCIType.valueOf(ciType);
+            if (ksmciType!=null) {
+                KSMCI ci = ksmObjFab.createKSMCI(uuid, name, ksmciType);
+                return ci.getKsmObjId();
+            } else {
+                logger.error("строковая переменная тип CI {} не может быть преобразована в enum KSMSCIType", ciType);
+                throw new IllegalArgumentException("KSM CI Type not known");
+            }
+        } catch (IllegalArgumentException e) {
+            logger.error("строковая переменная тип CI {} не может быть преобразована в enum KSMSCIType", ciType);
+            e.printStackTrace();
+            throw e;
+        }
+
+    }
+
+    @Override
+    public String createKPI(String ksmObjId, String name) {
+        return null;
+    }
+
+    @Override
+    public String createHI(String ksmObjId, String name) {
+        return null;
+    }
+
+    @Override
+    public String deleteKSMObjectByKsmID(String ksmObjId) {
+        return null;
+    }
+
+    @Override
+    public void linkCIToCI(String startCIiD, String endCiId) {
+
     }
 }

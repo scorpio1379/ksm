@@ -9,7 +9,11 @@ import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIType;
  */
 public interface IKSMObjectApiBase {
     void test();
-    KSMCI<KSMCIService> createService( String uuid , String name);
-    KSMCI craeteCI(String uuid , String name , KSMCIType ciType);
+    String createService( String ksmObjId , String name);
+    String createCI(String ksmObjId , String name , String ciType);
+    String createKPI(String ksmObjId , String name );
+    String createHI(String ksmObjId , String name );
+    String deleteKSMObjectByKsmID(String ksmObjId);
+    void linkCIToCI(String startCIiD, String endCiId );
 
 }

@@ -2,7 +2,6 @@ package ru.iteco.ip.ksm.web.rest.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIPropertyImpl;
 
 import java.io.Serializable;
 import java.util.List;

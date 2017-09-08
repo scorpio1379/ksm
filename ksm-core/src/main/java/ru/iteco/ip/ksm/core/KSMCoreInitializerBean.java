@@ -102,7 +102,7 @@ public class KSMCoreInitializerBean {
                 //EmbeddedDriver embeddedDriver = new EmbeddedDriver(gdbs);
                 //embeddedDriver.configure(ogmcfg);
                 //Configuration cfg = embeddedDriver.getConfiguration();
-                //SessionFactory sessionFactory = new SessionFactory( embeddedDriver,"ru.iteco.ip.ksm.ksmobjects");
+                //SessionFactory sessionFactory = new SessionFactory( embeddedDriver,"ru.iteco.ip.ksm.ksmobjectsBackUp");
 
                 logger.error("Session factory created...");
                 this.ogmEmbeddedDriver = embeddedDriver;

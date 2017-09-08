@@ -5,11 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import ru.iteco.ip.ksm.ksmobjects.cis.KSMCI;
-import ru.iteco.ip.ksm.ksmobjects.cis.KSMCIService;
-import ru.iteco.ip.ksm.ksmobjects.indicators.KSMHI;
-import ru.iteco.ip.ksm.ksmobjects.indicators.KSMKPI;
-import ru.iteco.ip.ksm.ksmobjects.relationships.DependentOnCIRelationShip;
 
 import java.io.Serializable;
 import java.util.List;
@@ -48,22 +43,23 @@ public class KSMServiceModelImpl implements KSMServiceModel , Serializable {
     @JsonProperty
     public List<ServiceHI> his;
 
-    @JsonProperty
-    List<ServiceCIImpl> cis;
 
+    @JsonProperty("Relationships")
     public List<ServiceModelRelationShipImpl> serviceModelRelationShips;
+    @JsonProperty("Services")
+    public List<ServiceCIImpl> serviceCIList;
     @JsonCreator
     public KSMServiceModelImpl(
             @JsonProperty("name") String name
             ,@JsonProperty("KPIs") List<ServiceKPI> kpis
             ,@JsonProperty("HIs") List<ServiceHI> his
-            ,@JsonProperty("Services") List<ServiceCIImpl> cis
+            ,@JsonProperty("Services") List<ServiceCIImpl> serviceCIList
             ,@JsonProperty("Relationships") List<ServiceModelRelationShipImpl> relationShips) {
         this.name = name;
         this.kpis = kpis;
         this.his = his;
         this.serviceModelRelationShips = relationShips;
-        this.cis = cis;
+        this.serviceCIList = serviceCIList;
     }
 
     public KSMServiceModelImpl() {

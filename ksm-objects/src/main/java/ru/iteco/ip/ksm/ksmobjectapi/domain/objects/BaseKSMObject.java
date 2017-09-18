@@ -15,7 +15,10 @@ import java.io.Serializable;
 public abstract class BaseKSMObject<T extends BaseKSMObject<T>> implements Serializable , IBaseKSMObject{
     @GraphId
     private Long id;
-    @Property(name="ksmObjId") @Id @GeneratedValue(strategy = GenerationType.UUID)
+    @Property(name="ksmObjId") @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Index(unique = true , primary = true)
+    //@GeneratedValue(strategy = org.neo4j.ogm.id.UuidStrategy.class)
     protected String ksmObjId;
     protected KSMObjectType ksmObjType;
 

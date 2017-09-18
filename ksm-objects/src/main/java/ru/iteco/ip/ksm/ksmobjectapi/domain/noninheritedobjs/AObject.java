@@ -18,13 +18,15 @@ public abstract class AObject implements IAObject ,EditableAObj {
 
     @GraphId
     protected Long id;
-    @Property(name="ksmObjId") @Id
+    @Property(name="ksmObjId")
+    @Id
+    @Index(unique = true , primary = true)
+    //@GeneratedValue(strategy = org.neo4j.ogm.id.UuidStrategy.class)
     @GeneratedValue(strategy = GenerationType.UUID)
     protected String ksmObjId;
     protected KSMObjectType ksmObjType;
 
 
-    @Index(unique=true)
     protected String name;
 
     public AObject() {

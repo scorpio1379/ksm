@@ -29,9 +29,9 @@ public class CI_Obj extends AObject implements CI , EditableCI {
     @Relationship(type = "AttachedKPI" ,direction = "INCOMING")
     public Set<AttachedKPI> attachedKPISet;
     @Relationship(type = "LinkedCI" ,direction = "BOTH")
-    protected Set<LinkedCI> dependentCis;
+    protected Set<LinkedCIRelationShip> dependentCis;
     @Relationship(type = "LinkedCI" ,direction = "BOTH")
-    protected Set<LinkedCI> parentCis;
+    protected Set<LinkedCIRelationShip> parentCis;
 
     @Relationship(type = "AttachedKPI" ,direction = "INCOMING")
     public Set<KPI> attachedKPISet1;
@@ -160,11 +160,11 @@ public class CI_Obj extends AObject implements CI , EditableCI {
         this.attachedKPISet = attachedKPISet;
     }
     @Override
-    public Set<LinkedCI> getDependentCi() {
+    public Set<LinkedCIRelationShip> getDependentCi() {
         return dependentCis;
     }
     @Override
-    public void setDependentCi(Set<LinkedCI> dependentCis) {
+    public void setDependentCi(Set<LinkedCIRelationShip> dependentCis) {
         this.dependentCis = dependentCis;
     }
 }

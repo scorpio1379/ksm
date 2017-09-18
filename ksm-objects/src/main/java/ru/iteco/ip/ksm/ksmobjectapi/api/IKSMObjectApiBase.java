@@ -1,5 +1,6 @@
 package ru.iteco.ip.ksm.ksmobjectapi.api;
 
+import ru.iteco.ip.ksm.ksmobjectapi.apiimpl.ServiceBuilder;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.HI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.KPI;
@@ -13,7 +14,7 @@ import java.util.Set;
 public interface IKSMObjectApiBase {
 
 
-    void test() throws NoSuchFieldException, IllegalAccessException;
+    void test() ;
 
     Set<Service> getAllKSMServices();
     /* ---- общие геттеры, поидее должны быть реализованы одной функцией getKSMObjByKSMId с последующим приведением типа*/
@@ -30,8 +31,12 @@ public interface IKSMObjectApiBase {
 
     CIBuilder getCIBuilder();
 
-    KPIBuilder getKPIBuilder( CI ci) throws NoSuchFieldException, IllegalAccessException;
+    KPIBuilder getKPIBuilder( CI ci) ;
     KPIBuilder getKPIBuilder(String kpiKsmObjId);
+
+    HIBuilder getHIBuilder(CI ci);
+
+    ServiceBuilder getServiceBuilder();
 
 
     

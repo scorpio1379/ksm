@@ -1,6 +1,7 @@
 package ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedservices;
 
 import org.neo4j.ogm.session.Session;
+import org.neo4j.ogm.transaction.Transaction;
 import org.slf4j.Logger;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.annotations.KSMObjectsOGMSession;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.IAObject;
@@ -37,13 +38,12 @@ public abstract class AbstractSrvcOGMImpl<T extends IAObject> implements Abstrac
 
     @Override
     public T find(String ksmObjId) {
+        session.clear();
         return (T) session.load(getEntityType(), ksmObjId, DEPTH_ENTITY);
     }
 
     @Override
     public T findByKsmObjId(String ksmObjId){
-        //MATCH (n:`KSMCI`) WHERE n.ksmObjId = { id } WITH n MATCH p=(n)-[*0..1]-(m) RETURN p
-        //String cypherString = "match (ksmObject{ksmObjId:'"+ ksmObjId.toString()+"'}) return ksmObject";
         try {
             String cypherString = "match (ksmObject{ksmObjId:'"+ ksmObjId.toString()+"'}) WITH ksmObject MATCH p=(ksmObject)-[*0..1]-(trgt) return p";
             //"MATCH (%s) WHERE n." + this.primaryIndex + " = { id } WITH n MATCH p=(n)-[*%d..%d]-(m) RETURN p"
@@ -93,26 +93,38 @@ public abstract class AbstractSrvcOGMImpl<T extends IAObject> implements Abstrac
     }
 
 
+    /* TODO: разобраться с транзакционностью*/
     @Override
-    public T createOrUpdate(T ksmObject) {
-        session.save(ksmObject, DEPTH_ENTITY);
-        Long lId= ksmObject.getId();
-        String uuid = ksmObject.getKsmObjId();
-        T obj = null;
-        System.out.println("param T is" + ksmObject.getClass().getCanonicalName());
-        try{
-            obj = find(lId);
-        } catch (Exception e){
-            System.out.println(" error trying to get object by long id " + e.getMessage());
-            obj = findByKsmObjId(ksmObject.getKsmObjId());
-        }finally {
-            if(obj!=null){
-                return obj;
-            }else{
-                logger.error("Can not get Node from GDB  by Long Id ={} nor by uuid {}" , lId,uuid);
-                throw new IndexOutOfBoundsException("Can not get Node from GDB  by Long Id =" + lId + " nor by uuid " + uuid);
-            }
+    public T createOrUpdate(final T ksmObject) {
+        System.err.println("FOR OBJECT " + ksmObject.getKsmObjType() + "KSMOBJID IS" + ksmObject.getKsmObjId());
+        try(Transaction trn = session.beginTransaction(Transaction.Type.READ_WRITE)){
+            session.clear();
+            session.save(ksmObject, DEPTH_ENTITY);
+            T newKsmObject = find(ksmObject.getKsmObjId());
+            trn.commit();
+            return newKsmObject;
         }
+
     }
     public abstract Class<T> getEntityType();
+
+    @Override
+    public Transaction beginTransaction() {
+        return session.beginTransaction();
+    }
+
+    @Override
+    public Transaction beginTransaction(Transaction.Type type) {
+        return session.beginTransaction(type);
+    }
+
+    @Override
+    public Transaction beginTransaction(Transaction.Type type, Iterable<String> iterable) {
+        return session.beginTransaction(type, iterable);
+    }
+
+    @Override
+    public T instansiateFromEntityType() throws IllegalAccessException, InstantiationException {
+        return getEntityType().newInstance();
+    }
 }

@@ -1,7 +1,10 @@
 package ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedservices;
 
+import org.neo4j.ogm.transaction.Transaction;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.IAObject;
 
+import javax.ejb.Lock;
+import javax.ejb.LockType;
 import java.util.UUID;
 
 /**
@@ -22,5 +25,14 @@ public interface AbstractSrvc<T extends IAObject> {
 
     void deleteByKsmObjId(UUID ksmObjId);
 
+    @Lock(LockType.WRITE)
     T createOrUpdate(T object);
+
+    Transaction beginTransaction();
+
+    Transaction beginTransaction(Transaction.Type type);
+
+    Transaction beginTransaction(Transaction.Type type, Iterable<String> iterable);
+
+    T instansiateFromEntityType() throws IllegalAccessException, InstantiationException;
 }

@@ -11,6 +11,7 @@ import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.HI;
  */
 @RelationshipEntity(type = "AttachedHI")
 public class AttachedHI {
+    private Long id;
     @StartNode
     private HI hi;
     @EndNode

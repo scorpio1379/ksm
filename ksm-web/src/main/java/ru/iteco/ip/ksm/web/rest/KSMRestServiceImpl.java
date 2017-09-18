@@ -6,6 +6,8 @@ import ru.iteco.ip.ksm.web.rest.models.KSMServiceModelImpl;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Scorpio on 21.06.2017.
@@ -28,25 +30,12 @@ public class KSMRestServiceImpl {
     @Path("/getModels")
     @Produces("application/json")
     public String getServiceModels(){
-        /*
+
         ExecutorService executor = Executors.newCachedThreadPool();
         for(int i = 0; i < 10; i++) {
-            executor.submit(new Runnable(){
-            public void run() {
-                ksmObjectApi.test();
-            }
-            });
-        }*/
-
-        try {
-            ksmObjectApi.test();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-            return e.getMessage();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            return e.getMessage();
+            executor.submit(() -> ksmObjectApi.test());
         }
+
         return "someThing";
     }
     @POST

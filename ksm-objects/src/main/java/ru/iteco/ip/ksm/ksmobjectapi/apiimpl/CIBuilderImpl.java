@@ -1,11 +1,10 @@
 package ru.iteco.ip.ksm.ksmobjectapi.apiimpl;
 
+import org.neo4j.ogm.transaction.Transaction;
 import org.slf4j.Logger;
 import ru.iteco.ip.ksm.ksmobjectapi.api.CIBuilder;
-import ru.iteco.ip.ksm.ksmobjectapi.domain.KSMObjectType;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedobjs.CI_Obj;
-import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedobjs.EditableCI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedservices.CISrvc;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.objects.cis.KSMCIType;
 import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
@@ -24,10 +23,10 @@ public  class CIBuilderImpl implements CIBuilder {
     private CISrvc ciSrvc;
 
     private String ksmObjId = null;
-    private String name = "name";
-    private String description = "";
-    private KSMCIType ksmCiType = KSMCIType.REGULAR;
-    private String statusKPIksmObjId = "";
+    private String name = null;
+    private String description = null;
+    private KSMCIType ksmCiType = null;
+    private String statusKPIksmObjId = null;
 
 
 
@@ -71,33 +70,35 @@ public  class CIBuilderImpl implements CIBuilder {
     public CI build() {
         /*TODO:ошибочная стратегия, нужно убрать метод в абстрактный базовый класс,который как-то болжен быть параметрезирован конкретной реализацией интерфейса ОБЬкекта (CI KPI или что-то еще)
          */
-        if(!(this.ksmObjId==null)){
-            CI tmpci;
-            try {
-                //tmpci = ciSrvc.findByKsmObjId(ksmObjId);
-                tmpci = ciSrvc.find(ksmObjId);
+        try(Transaction trn = this.ciSrvc.beginTransaction(Transaction.Type.READ_WRITE)) {
+            CI tmpCi = null;
+            if (this.ksmObjId != null) tmpCi = ciSrvc.find(ksmObjId);
+            if (tmpCi == null) tmpCi = new CI_Obj(); //this.getNewCI_Obj();
+            //this.ksmObjId==null ? (tmpci1 = this.getNewCI_Obj()) : (tmpci1 = ciSrvc.find(ksmObjId));
 
-                if(tmpci.getKsmObjType().equals(KSMObjectType.CI)){
-                    ((EditableCI)tmpci).setName(this.name);
-                    ((EditableCI)tmpci).setDescription(this.description);
-                    ((EditableCI)tmpci).setKsmCiType(this.ksmCiType);
-                    ((EditableCI)tmpci).setStatusKPIksmObjId(this.statusKPIksmObjId);
-                    return ciSrvc.createOrUpdate(tmpci);
+            if (this.ksmObjId != null) ((CI_Obj) tmpCi).setKsmObjId(this.ksmObjId);
+            if (this.name != null) tmpCi.setName(this.name);
+            if (this.description != null) tmpCi.setDescription(this.description);
+            if (this.ksmCiType != null) tmpCi.setKsmCiType(this.ksmCiType);
+            if (this.statusKPIksmObjId != null) tmpCi.setStatusKPIksmObjId(this.statusKPIksmObjId);
 
-                }else{
-                    logger.error("FATAL ERROR : KSMObj with id {} requested in  param constructor CIBuilderImpl may NOT be CI or it extention " , ksmObjId);
-                    throw new ClassCastException("FATAL ERROR : KSMObj with id "+ksmObjId+" requested in  param constructor CIBuilderImpl may NOT be CI or it extention ");
-                }
-            } catch (Exception fetchErr) {
+            CI returnrdCi = ciSrvc.createOrUpdate(tmpCi);
+            trn.commit();
+            return returnrdCi;
 
-                logger.error("ERROR: unable to get any object with ksmObjId {} proceed with creation " , ksmObjId);
-                /*TODO: надо как-то придумать разные инициализации билдеров с ksmObjID и без оного. или же вообще отказаться от явного присвоения ksmObjID и обьеденять обьекты по какому то иному признаку*/
-                return ciSrvc.createOrUpdate(new CI_Obj.Builder(this.name).description(this.description).ksmCiType(this.ksmCiType).statusKPIksmObjId(this.statusKPIksmObjId).ksmObjId(this.ksmObjId).build());
-            }
-
-        }else{
-            return ciSrvc.createOrUpdate(new CI_Obj.Builder(this.name).description(this.description).ksmCiType(this.ksmCiType).statusKPIksmObjId(this.statusKPIksmObjId).build());
         }
+
+
+    }
+
+    private CI getNewCI_Obj(){
+        CI_Obj tmpCi = new CI_Obj();
+        if (this.ksmObjId!=null) tmpCi.setKsmObjId(this.ksmObjId);
+        if (this.name!=null)tmpCi.setName(this.name);
+        if (this.description!=null)tmpCi.setDescription(this.description);
+        if (this.ksmCiType!=null)tmpCi.setKsmCiType(this.ksmCiType);
+        if (this.statusKPIksmObjId!=null) tmpCi.setStatusKPIksmObjId(this.statusKPIksmObjId);
+        return tmpCi;
 
     }
 }

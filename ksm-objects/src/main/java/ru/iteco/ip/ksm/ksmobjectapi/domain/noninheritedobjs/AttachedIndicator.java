@@ -9,7 +9,7 @@ import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
  * Created by Scorpio on 05.09.2017.
  */
 @RelationshipEntity(type = "AttachedIndicator")
-public class AttachedIndicator {
+public class AttachedIndicator extends AObject {
     @StartNode
     private AIndicator indicator;
     @EndNode

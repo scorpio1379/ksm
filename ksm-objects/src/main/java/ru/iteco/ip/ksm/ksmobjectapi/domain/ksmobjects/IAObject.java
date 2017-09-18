@@ -17,5 +17,5 @@ public interface IAObject {
 
     String getName();
 
-    //void setName(String name);
+    void setName(String name);
 }

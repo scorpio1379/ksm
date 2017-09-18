@@ -18,7 +18,7 @@ public interface EditableCI extends EditableAObj {
 
     void setAttachedKPISet(Set<AttachedKPI> attachedKPISet);
 
-    void setDependentCi(Set<LinkedCI> dependentCi);
+    void setDependentCi(Set<LinkedCIRelationShip> dependentCi);
 
 
     String getDescription();
@@ -36,5 +36,5 @@ public interface EditableCI extends EditableAObj {
     Set<AttachedKPI> getAttachedKPISet();
 
 
-    Set<LinkedCI> getDependentCi();
+    Set<LinkedCIRelationShip> getDependentCi();
 }

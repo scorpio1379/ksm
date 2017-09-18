@@ -41,29 +41,8 @@ public class Neo4jSessionFactory {
     @PostConstruct
     private void initNeo4jSessionFactory(){
         int bltPortNum = ((Neo4JGDBConfiguration) (ksmCfgMgr.getGDBConfiguration())).getBoltProtocolNumber();
-        Configuration bltCfg = new Configuration.Builder().uri("bolt://localhost:" + bltPortNum).build();
+        Configuration bltCfg = new Configuration.Builder().uri("bolt://localhost:" + bltPortNum).autoIndex("assert").build();
         this.sessionFactory = new SessionFactory( bltCfg ,"ru.iteco.ip.ksm.ksmobjectapi");
-
-/*
-        KSMCI ci = new KSMCI("ciuuid", "name1");
-        Session sess = this.sessionFactory.openSession();
-        sess.save(ci);
-        KSMKPI kpi = new KSMKPI("kpiuuid" , "kpiname1");
-        sess.save(kpi);
-        ci.addDependentCI(new KSMCI("ci2uuid" , "name2"));
-        sess.save(ci);
-        ci.addAscendentCis(new KSMCI("ci3uuid" , "name3"));
-        sess.save(ci);
-
-        KSMKPI kpi2 = new KSMKPI("kpi2");
-        sess.save(kpi2);
-        ci.addKPI(kpi2);
-        sess.save(ci);
-        */
-
-
-        /*TODO:remove*/
-        System.out.println();
 
 
     }

@@ -13,17 +13,19 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 public class HI_Obj  extends AIndicator implements HI{
 
     @Relationship(type = "AttachedHI")
-    private CI relatedCi;
+    private CI relatedCI;
+
+    private String hiType;
 
 
     @Override
     public CI getRelatedCI() {
-        return this.relatedCi;
+        return this.relatedCI;
     }
 
     @Override
     public void setRelatedCI(CI ci) {
-        this.relatedCi = ci;
+        this.relatedCI = ci;
 
     }
 
@@ -33,5 +35,14 @@ public class HI_Obj  extends AIndicator implements HI{
         logger.error("Method setRelatedCI(String ciKsmObjId) in HI_Obj NOT Implemented YET");
         throw new NotImplementedException();
 
+    }
+
+    @Override
+    public String getHiType() {
+        return hiType;
+    }
+    @Override
+    public void setHiType(String hiType) {
+        this.hiType = hiType;
     }
 }

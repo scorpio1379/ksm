@@ -9,5 +9,5 @@ import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.KPI;
  */
 public interface KPIBuilderFactory extends IObjectBuilderFactory<KPI> {
     KPIBuilder getKPIBuilder();
-    KPIBuilder getKPIBuilder(CI ci) throws NoSuchFieldException, IllegalAccessException;
+    KPIBuilder getKPIBuilder(CI ci) ;
 }

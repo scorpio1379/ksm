@@ -17,4 +17,6 @@ public interface IAIndicator extends IAObject {
     KSMIndicatorType getIndicatorType();
 
     //void setIndicatorType(KSMIndicatorType indicatorType);
+
+    void setDescription(String description);
 }

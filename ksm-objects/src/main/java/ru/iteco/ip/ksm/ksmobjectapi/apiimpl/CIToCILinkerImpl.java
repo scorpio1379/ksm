@@ -6,11 +6,13 @@ import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedservices.LinkedCIRelationShipSrvc;
 import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
  * Created by Scorpio on 14.09.2017.
  */
+@Stateless
 public class CIToCILinkerImpl implements CIToCILinker {
     @Inject
     @DefaultKSMLogger
@@ -39,6 +41,16 @@ public class CIToCILinkerImpl implements CIToCILinker {
     public CIToCILinker setLinkType(String linkType) {
         this.ciTociRelationType = linkType;
         return this;
+    }
+
+    @Override
+    public CIToCILinker setStartCI(String startCiKsmObjId) {
+        return null;
+    }
+
+    @Override
+    public CIToCILinker setEndCI(String endCiKsmObjId) {
+        return null;
     }
 
     @Override

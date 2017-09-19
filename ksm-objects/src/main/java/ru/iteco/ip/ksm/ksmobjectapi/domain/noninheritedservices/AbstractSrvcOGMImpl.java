@@ -23,8 +23,8 @@ public abstract class AbstractSrvcOGMImpl<T extends IAObject> implements Abstrac
     @Inject @DefaultKSMLogger
     protected Logger logger;
 
-    private static final int DEPTH_LIST = 0;
-    private static final int DEPTH_ENTITY = 1;
+    protected static final int DEPTH_LIST = 0;
+    protected static final int DEPTH_ENTITY = 1;
 
     @Override
     public Iterable<T> findAll() {
@@ -96,8 +96,9 @@ public abstract class AbstractSrvcOGMImpl<T extends IAObject> implements Abstrac
     /* TODO: разобраться с транзакционностью*/
     @Override
     public T createOrUpdate(final T ksmObject) {
-        System.err.println("FOR OBJECT " + ksmObject.getKsmObjType() + "KSMOBJID IS" + ksmObject.getKsmObjId());
-        try(Transaction trn = session.beginTransaction(Transaction.Type.READ_WRITE)){
+        System.err.println("FOR OBJECT " + ksmObject.getKsmObjType() + " KSMOBJID IS" + ksmObject.getKsmObjId());
+        //try(Transaction trn = session.beginTransaction(Transaction.Type.READ_WRITE)){
+        try(Transaction trn = session.beginTransaction()){
             session.clear();
             session.save(ksmObject, DEPTH_ENTITY);
             T newKsmObject = find(ksmObject.getKsmObjId());

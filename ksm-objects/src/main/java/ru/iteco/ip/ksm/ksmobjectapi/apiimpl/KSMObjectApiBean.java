@@ -6,12 +6,9 @@ import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.HI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.KPI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.Service;
-import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedobjs.HI_Obj;
-import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedobjs.KPI_Obj;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedobjs.Service_Obj;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedservices.CISrvc;
 import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Local;
@@ -27,7 +24,8 @@ import java.util.Set;
 @Stateless(name = "KSMObjectApiEJB" , mappedName = "KSMObjectApi")
 @Remote(IKSMObjectApiRemote.class)
 @Local(IKSMObjectApiLocal.class)
-public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLocal {
+public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLocal
+{
     @Inject @DefaultKSMLogger
     private Logger logger;
 
@@ -69,6 +67,11 @@ public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLoca
 
         HI hi = getHIBuilder(a).name("hiname").description("hidescr").ksmObjId("22eb9a4e-08e3-4521-b3b4-6f70a562cc6e").hiType("sometyped").build();
 
+        CI b = getCIBuilder().name("someOtherName").description("description2").statusKPIksmObjId("somestatusKpi2").ksmObjId("55eb9a4e-08e3-4521-b3b4-6f70a562cc6e").build();
+
+        ci2CILinker.setStartCI(a).setEndCI(b).build();
+
+
     }
 
     @Override
@@ -84,17 +87,17 @@ public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLoca
 
     @Override
     public CI getKSMCIByKSMObjId(String ksmObjId) {
-        return ciSrvc.findByKsmObjId(ksmObjId);
+        return ciBuilder.get(ksmObjId);
     }
 
     @Override
     public KPI getKSMKPIByKSMObjId(String ksmObjId) {
-        return new KPI_Obj();
+        throw new org.apache.commons.lang3.NotImplementedException("method  getKSMKPIByKSMObjId(String ksmObjId) in  class KSMObjectApiBean NOT implemented YET");
     }
 
     @Override
     public HI getKSMHIByKSMObjId(String ksmObjId) {
-        return new HI_Obj();
+        throw new org.apache.commons.lang3.NotImplementedException("method  getKSMHIByKSMObjId(String ksmObjId) in  class KSMObjectApiBean NOT implemented YET");
     }
 
 
@@ -106,16 +109,20 @@ public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLoca
     }
 
     @Override
-    public String linkCIToCI(String startCIiD, String endCiId , String CI2CIRelationShipType ) {
+    public void linkCIToCI(String startCIiD, String endCiId , String CI2CIRelationShipType ) {
+        ci2CILinker.setStartCI(ciBuilder.get(startCIiD)).setEndCI(ciBuilder.get(endCiId)).build();
 
-        //ksmRelFab.createCIToCILink( startCIiD, endCiId , CI2CIRelationShipType );
-        return "1";
 
     }
 
     @Override
     public CIBuilder getCIBuilder() {
         return this.ciBuilder;
+    }
+
+    @Override
+    public CIBuilder getCIBuilder(String ciKsmObjId) {
+        throw new org.apache.commons.lang3.NotImplementedException("method getCIBuilder(String ciKsmObjId) in  class KSMObjectApiBean NOT implemented YET ");
     }
 
     @Override
@@ -126,7 +133,7 @@ public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLoca
     @Override
     public KPIBuilder getKPIBuilder(String kpiKsmObjId) {
         logger.error("ERROR: METHOD getKPIBuilder(String kpiKsmObjId) in  KSMObjectApiBean NOT IMPLEMENTED YET");
-        throw new NotImplementedException();
+        throw new org.apache.commons.lang3.NotImplementedException("ERROR: METHOD getKPIBuilder(String kpiKsmObjId) in  KSMObjectApiBean NOT IMPLEMENTED YET");
     }
 
     @Override

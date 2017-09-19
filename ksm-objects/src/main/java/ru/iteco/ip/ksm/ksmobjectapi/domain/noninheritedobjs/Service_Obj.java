@@ -8,17 +8,17 @@ import ru.iteco.ip.ksm.ksmobjectapi.domain.objects.cis.KSMCIType;
  */
 
 public class Service_Obj extends CI_Obj implements Service{
-    private String servicetype;
+    private String serviceType;
     public Service_Obj() {
         super();
         this.ksmCiType = KSMCIType.SERVICE;
     }
 
-    public String getServicetype() {
-        return servicetype;
+    public String getServiceType() {
+        return serviceType;
     }
 
-    public void setServicetype(String servicetype) {
-        this.servicetype = servicetype;
+    public void setServiceType(String servicetype) {
+        this.serviceType = servicetype;
     }
 }

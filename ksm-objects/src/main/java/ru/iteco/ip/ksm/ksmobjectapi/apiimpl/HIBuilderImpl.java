@@ -88,6 +88,11 @@ public class HIBuilderImpl implements HIBuilder, InitableHIBuilder {
     }
 
     @Override
+    public HI get(String ksmObjId) {
+        return hiSrvc.find(ksmObjId);
+    }
+
+    @Override
     public void setCI(CI ci) {
         this.relatedCI= ci;
     }

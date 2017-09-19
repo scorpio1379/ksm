@@ -6,11 +6,13 @@ import org.neo4j.ogm.annotation.StartNode;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.HI;
 
+import java.io.Serializable;
+
 /**
  * Created by Scorpio on 05.09.2017.
  */
 @RelationshipEntity(type = "AttachedHI")
-public class AttachedHI {
+public class AttachedHI implements Serializable{
     private Long id;
     @StartNode
     private HI hi;

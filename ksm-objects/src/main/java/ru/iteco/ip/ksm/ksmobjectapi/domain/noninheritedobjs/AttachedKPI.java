@@ -6,11 +6,13 @@ import org.neo4j.ogm.annotation.StartNode;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.KPI;
 
+import java.io.Serializable;
+
 /**
  * Created by Scorpio on 05.09.2017.
  */
 @RelationshipEntity(type = "AttachedKPI")
-public class AttachedKPI {
+public class AttachedKPI implements Serializable {
     private Long id;
     @StartNode
     private KPI kpi;

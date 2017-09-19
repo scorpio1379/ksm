@@ -9,5 +9,7 @@ public interface CIToCILinker {
     CIToCILinker setStartCI(CI startCi);
     CIToCILinker setEndCI(CI endCi);
     CIToCILinker setLinkType(String linkType);
+    CIToCILinker setStartCI(String startCiKsmObjId);
+    CIToCILinker setEndCI(String endCiKsmObjId);
     void build();
 }

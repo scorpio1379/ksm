@@ -8,4 +8,5 @@ public interface ObjectBuilder<BUILDERTYPE, OBJECTYPE > {
     BUILDERTYPE ksmObjId (String ksmObjId);
     BUILDERTYPE name(String name);
     OBJECTYPE build();
+    OBJECTYPE get(String ksmObjId);
 }

@@ -1,7 +1,10 @@
 package ru.iteco.ip.ksm.web.rest;
 
 import ru.iteco.ip.ksm.ksmobjectapi.api.IKSMObjectApiRemote;
-import ru.iteco.ip.ksm.web.rest.models.KSMServiceModelImpl;
+import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
+import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.Service;
+import ru.iteco.ip.ksm.ksmobjectapi.domain.objects.cis.KSMCIType;
+import ru.iteco.ip.ksm.web.rest.models.*;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -30,6 +33,7 @@ public class KSMRestServiceImpl {
     @Path("/getModels")
     @Produces("application/json")
     public String getServiceModels(){
+        ksmObjectApi.test();
 
         ExecutorService executor = Executors.newCachedThreadPool();
         for(int i = 0; i < 10; i++) {
@@ -42,28 +46,68 @@ public class KSMRestServiceImpl {
     @Path("/loadServiceFromXML")
     @Consumes({"application/xml", "text/xml", "application/json"})
     public String loadServiceFromXML(KSMServiceModelImpl ksmServiceModel){
-        /**
-        CI ci = ksmObjectApi.getCIBuilder().description("").ksmCiType(KSMCIType.REGULAR).name("somename").build();
-        String serviceCIId = ksmObjectApi.createCI(ksmServiceModel.tmpId, ksmServiceModel.name, "SERVICE");
-        for(ServiceKPI serviceKpi:ksmServiceModel.kpis){
-            ksmObjectApi.createKPI(serviceCIId,serviceKpi.tmpId , serviceKpi.name ,serviceKpi.kpiType);
-            ksmObjectApi.getCIBuilder().build().
+        Service srvc = ksmObjectApi.getServiceBuilder().ksmObjId(ksmServiceModel.tmpId)
+                .description(ksmServiceModel.description)
+                .name(ksmServiceModel.name)
+                .statusKPIksmObjId(ksmServiceModel.status_kpi_id)
+                .ksmCiType(KSMCIType.SERVICE)
+                .build();
+
+        if (ksmServiceModel.kpis!=null){
+            for(ServiceKPI serviceKpi:ksmServiceModel.kpis){
+                ksmObjectApi.getKPIBuilder(srvc)
+                        .ksmObjId(serviceKpi.tmpId)
+                        .calcRuleId(serviceKpi.ruleFileName)
+                        .kpiType(serviceKpi.kpiType)
+                        .description(serviceKpi.displayName)
+                        .name(serviceKpi.name)
+                        .build();
+            }
         }
+        if (ksmServiceModel.his!=null){
+            for(ServiceHI serviceHI:ksmServiceModel.his){
+                ksmObjectApi.getHIBuilder(srvc)
+                        .hiType(serviceHI.hiType)
+                        .description(serviceHI.displayName)
+                        .ksmObjId(serviceHI.tmpId)
+                        .name(serviceHI.name)
+                        .build();
+            }
+
+        }
+
+
+
         for(ServiceCIImpl serviceCi:ksmServiceModel.serviceCIList){
-            String ciKsmObjId = ksmObjectApi.createCI(serviceCi.tmpId, serviceCi.name, serviceCi.serviceType);
+            CI ci = ksmObjectApi.getCIBuilder()
+                    .ksmCiType(KSMCIType.REGULAR)
+                    .name(serviceCi.name)
+                    .description(serviceCi.description)
+                    .statusKPIksmObjId(serviceCi.status_kpi_id)
+                    .ksmObjId(serviceCi.tmpId)
+                    .build();
             for ( ServiceHI hi :serviceCi.his){
-                ksmObjectApi.createHI(ciKsmObjId,hi.tmpId,hi.name,hi.hiType);
+                ksmObjectApi.getHIBuilder(ci)
+                        .hiType(hi.hiType)
+                        .description(hi.displayName)
+                        .ksmObjId(hi.tmpId)
+                        .name(hi.name)
+                        .build();
             }
             for (ServiceKPI skpi:serviceCi.kpis){
-                ksmObjectApi.createKPI(ciKsmObjId,skpi.tmpId,skpi.name,skpi.kpiType);
+                ksmObjectApi.getKPIBuilder(ci)
+                        .ksmObjId(skpi.tmpId)
+                        .calcRuleId(skpi.ruleFileName)
+                        .kpiType(skpi.kpiType)
+                        .description(skpi.displayName)
+                        .name(skpi.name)
+                        .build();
             }
         }
         for(ServiceModelRelationShipImpl relation : ksmServiceModel.serviceModelRelationShips){
             ksmObjectApi.linkCIToCI(relation.startNodeId , relation.endNodeId , relation.relationType);
         }
-        //serviceKPIid =
         return "youre string is" + ksmServiceModel;
-         */
-        return  "NOT IMPLEMENTED";
+
     }
 }

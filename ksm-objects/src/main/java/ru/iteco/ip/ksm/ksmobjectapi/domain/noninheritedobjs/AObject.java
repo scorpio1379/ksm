@@ -7,12 +7,13 @@ import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.IAObject;
 import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
 
 import javax.inject.Inject;
+import java.io.Serializable;
 
 /**
  * Created by Scorpio on 05.09.2017.
  */
 @NodeEntity
-public abstract class AObject implements IAObject ,EditableAObj {
+public abstract class AObject implements IAObject ,EditableAObj,Serializable {
     @Inject @DefaultKSMLogger
     protected Logger logger;
 

@@ -102,6 +102,11 @@ public class KPIBuilderImpl implements KPIBuilder , InitableKPIBuilder {
 
     }
 
+    @Override
+    public KPI get(String ksmObjId) {
+        return kpiSrvc.find(ksmObjId);
+    }
+
     private KPI createNewKPI(){
         KPI_Obj tmpKPI = new KPI_Obj();
         if (this.ksmObjId!=null) tmpKPI.setKsmObjId(this.ksmObjId);

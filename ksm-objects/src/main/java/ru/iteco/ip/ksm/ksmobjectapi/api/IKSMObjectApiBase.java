@@ -1,6 +1,5 @@
 package ru.iteco.ip.ksm.ksmobjectapi.api;
 
-import ru.iteco.ip.ksm.ksmobjectapi.apiimpl.ServiceBuilder;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.HI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.KPI;
@@ -27,9 +26,10 @@ public interface IKSMObjectApiBase {
     /* общая функция*/
     String deleteKSMObjectByKsmID(String ksmObjId);
     /* пока существует единственный тип связи */
-    String linkCIToCI(String startCIiD, String endCiId, String CI2CIRelationShipType);
+    void linkCIToCI(String startCIiD, String endCiId, String CI2CIRelationShipType);
 
     CIBuilder getCIBuilder();
+    CIBuilder getCIBuilder(String ciKsmObjId);
 
     KPIBuilder getKPIBuilder( CI ci) ;
     KPIBuilder getKPIBuilder(String kpiKsmObjId);

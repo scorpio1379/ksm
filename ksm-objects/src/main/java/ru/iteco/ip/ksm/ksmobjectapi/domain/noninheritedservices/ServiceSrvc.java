@@ -10,6 +10,7 @@ import java.util.Set;
 /**
  * Created by Scorpio on 06.09.2017.
  */
+
 public interface ServiceSrvc extends AbstractSrvc<Service> {
     Set<CI> getAllRelatedCis(Service service);
     Set<LinkedCIRelationShip> getAllRelations(Service service);

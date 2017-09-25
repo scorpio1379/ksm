@@ -140,6 +140,7 @@
                 <configuration>
                     <skip>false</skip>
                     <jbossHome>C:\AS\wildfly-10.1.0.Final</jbossHome>
+                    <server-config>standalone-full.xml</server-config>
                 </configuration>
             </plugin>
 

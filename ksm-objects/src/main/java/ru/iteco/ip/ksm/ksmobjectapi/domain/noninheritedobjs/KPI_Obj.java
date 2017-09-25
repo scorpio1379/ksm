@@ -10,6 +10,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 /**
  * Created by Scorpio on 05.09.2017.
  */
+//@NodeEntity (label = "KSMKPI")
 @NodeEntity
 public class KPI_Obj extends AIndicator implements KPI , EditableKPI {
     private String kpiType;
@@ -19,7 +20,7 @@ public class KPI_Obj extends AIndicator implements KPI , EditableKPI {
     public CI relatedCI;
 
     @Relationship(type = "AttachedKPI")
-    public AttachedKPI attachedKPI;
+    public AttachedKPI attachedKPIRelationShip;
 
     public KPI_Obj() {
         super();
@@ -63,5 +64,13 @@ public class KPI_Obj extends AIndicator implements KPI , EditableKPI {
 
     }
 
+    @Override
+    public AttachedKPI getAttachedKPIRelationShip() {
+        return attachedKPIRelationShip;
+    }
 
+    @Override
+    public void setAttachedKPIRelationShip(AttachedKPI attachedKPIRelationShip) {
+        this.attachedKPIRelationShip = attachedKPIRelationShip;
+    }
 }

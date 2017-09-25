@@ -9,4 +9,6 @@ public interface ObjectBuilder<BUILDERTYPE, OBJECTYPE > {
     BUILDERTYPE name(String name);
     OBJECTYPE build();
     OBJECTYPE get(String ksmObjId);
+
+
 }

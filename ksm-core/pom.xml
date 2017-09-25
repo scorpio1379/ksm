@@ -12,6 +12,13 @@
     <artifactId>ksm-core</artifactId>
     <packaging>ejb</packaging>
     <name>KSM Core Module</name>
+    <properties>
+        <queue.endpoint>KSMEventCollectorEndPoint</queue.endpoint>
+        <!--
+        строка,которая должна быть в standalone-full.xml конфигурации WildFly
+         <jms-queue name="KSMEventCollectorEndPoint" entries="java:/jms/queue/KSMEventCollectorEndPoint"/>
+        -->
+    </properties>
     <dependencies>
         <dependency>
             <groupId>javax</groupId>

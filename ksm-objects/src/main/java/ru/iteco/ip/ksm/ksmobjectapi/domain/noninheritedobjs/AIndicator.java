@@ -9,6 +9,7 @@ import ru.iteco.ip.ksm.ksmobjectapi.domain.objects.indicators.KSMIndicatorType;
  * Created by Scorpio on 05.09.2017.
  */
 @NodeEntity
+//@NodeEntity(label = "KSMIndicator")
 public abstract class AIndicator extends AObject implements IAIndicator , EditableIAIndicator {
     protected String value;
     protected String status;

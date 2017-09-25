@@ -23,7 +23,7 @@ public abstract class AbstractSrvcOGMImpl<T extends IAObject> implements Abstrac
     @Inject @DefaultKSMLogger
     protected Logger logger;
 
-    protected static final int DEPTH_LIST = 0;
+    protected static final int DEPTH_LIST = 1;
     protected static final int DEPTH_ENTITY = 1;
 
     @Override

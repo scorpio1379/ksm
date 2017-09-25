@@ -22,7 +22,6 @@ import java.util.concurrent.Executors;
 public class KSMRestServiceImpl {
 
     @EJB
-    //@Inject @Default
     private IKSMObjectApiRemote ksmObjectApi;
 
 
@@ -75,9 +74,6 @@ public class KSMRestServiceImpl {
             }
 
         }
-
-
-
         for(ServiceCIImpl serviceCi:ksmServiceModel.serviceCIList){
             CI ci = ksmObjectApi.getCIBuilder()
                     .ksmCiType(KSMCIType.REGULAR)

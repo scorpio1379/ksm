@@ -15,7 +15,7 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -71,12 +71,15 @@ public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLoca
 
         ci2CILinker.setStartCI(a).setEndCI(b).build();
 
-
+        Set<Service> srvcs = getAllKSMServices();
+        HashSet<ServiceModel> srvcsModels = new HashSet<>();
+        srvcs.forEach(it->srvcsModels.add(this.getServiceBuilder().getServiceModel(it)));
+        System.out.println();
     }
 
     @Override
     public Set<Service> getAllKSMServices() {
-        return Collections.emptySet();
+        return this.getServiceBuilder().getAll();
     }
 
     @Override

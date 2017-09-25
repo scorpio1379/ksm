@@ -5,36 +5,34 @@ import org.neo4j.ogm.annotation.Relationship;
 import org.slf4j.Logger;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.KSMObjectType;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
-import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.KPI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.objects.cis.KSMCIType;
 import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
 
 import javax.inject.Inject;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by Scorpio on 05.09.2017.
  */
 @NodeEntity
+//@NodeEntity(label = "KSMCI")
 public class CI_Obj extends AObject implements CI , EditableCI {
     /*TODO: точно определиться где надо определять значения по умолчанию*/
-
-
     protected String description;
     protected KSMCIType ksmCiType;
     protected String statusKPIksmObjId;
 
-    @Relationship(type = "AttachedHI",direction = "INCOMING")
-    public Set<AttachedHI> attachedHISet;
-    @Relationship(type = "AttachedKPI" ,direction = "INCOMING")
-    public Set<AttachedKPI> attachedKPISet;
-    @Relationship(type = "LinkedCI" ,direction = "BOTH")
-    protected Set<LinkedCIRelationShip> dependentCis;
-    @Relationship(type = "LinkedCI" ,direction = "BOTH")
-    protected Set<LinkedCIRelationShip> parentCis;
 
+
+    @Relationship(type = "AttachedHI",direction = "INCOMING")
+    public Set<AttachedHI> attachedHISet = new HashSet<>();
     @Relationship(type = "AttachedKPI" ,direction = "INCOMING")
-    public Set<KPI> attachedKPISet1;
+    public Set<AttachedKPI> attachedKPISet = new HashSet<>();
+    @Relationship(type = "LinkedCI" ,direction = "INCOMING")
+    public  Set<LinkedCIRelationShip> dependentCis = new HashSet<>();
+    @Relationship(type = "LinkedCI" )
+    public  Set<LinkedCIRelationShip> parentCis = new HashSet<>();
 
 
     @Inject
@@ -167,4 +165,6 @@ public class CI_Obj extends AObject implements CI , EditableCI {
     public void setDependentCi(Set<LinkedCIRelationShip> dependentCis) {
         this.dependentCis = dependentCis;
     }
+
+
 }

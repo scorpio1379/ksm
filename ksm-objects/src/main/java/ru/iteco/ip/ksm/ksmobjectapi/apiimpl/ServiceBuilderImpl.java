@@ -3,6 +3,7 @@ package ru.iteco.ip.ksm.ksmobjectapi.apiimpl;
 import org.neo4j.ogm.transaction.Transaction;
 import org.slf4j.Logger;
 import ru.iteco.ip.ksm.ksmobjectapi.api.ServiceBuilder;
+import ru.iteco.ip.ksm.ksmobjectapi.api.ServiceModel;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.Service;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedobjs.EditableAObj;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.noninheritedservices.ServiceSrvc;
@@ -11,6 +12,8 @@ import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Scorpio on 18.09.2017.
@@ -92,5 +95,21 @@ public class ServiceBuilderImpl implements ServiceBuilder {
         }
 
 
+    }
+
+    @Override
+    public Set<Service> getAll(){
+        HashSet<Service> services = new HashSet<>();
+        serviceSrvc.findAll().forEach(it -> services.add(it));
+        return services;
+    }
+
+    @Override
+    public ServiceModel getServiceModel(Service service) {
+        //ServiceModel serviceModel = new ServiceModelImpl();
+        ServiceModel serviceModel = serviceSrvc.getServiceModel(service);
+        //serviceModel.setRelatedCis(serviceSrvc.getAllRelatedCis(service));
+       // serviceModel.setCi2ciRelationShips(this.serviceSrvc.getAllRelations(service));
+        return serviceModel;
     }
 }

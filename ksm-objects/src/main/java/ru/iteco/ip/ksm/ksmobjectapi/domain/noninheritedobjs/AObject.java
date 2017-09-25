@@ -13,6 +13,7 @@ import java.io.Serializable;
  * Created by Scorpio on 05.09.2017.
  */
 @NodeEntity
+//@NodeEntity(label = "KSMObject")
 public abstract class AObject implements IAObject ,EditableAObj,Serializable {
     @Inject @DefaultKSMLogger
     protected Logger logger;

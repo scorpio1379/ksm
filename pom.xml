@@ -18,6 +18,10 @@
     <packaging>pom</packaging>
 
     <properties>
+        <queue.endpoint.name>KSMEventCollectorQueueEndPoint</queue.endpoint.name>
+        <!-- need to add this to standalone-full.xml
+        <jms-queue name="KSMEventCollectorQueueEndPoint" entries="java:/jms/queue/KSMEventCollectorQueueEndPoint"/>
+        -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -128,6 +132,11 @@
                 <artifactId>neo4j-java-driver</artifactId>
                 <version>${neo4j-java-driver.version}</version>
                 <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>ru.iteco.ip.ksm.shared</groupId>
+                <artifactId>ksmevent</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
 
         </dependencies>

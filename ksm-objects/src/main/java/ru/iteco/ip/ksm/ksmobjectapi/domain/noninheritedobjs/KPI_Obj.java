@@ -5,7 +5,6 @@ import org.neo4j.ogm.annotation.Relationship;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.CI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.ksmobjects.KPI;
 import ru.iteco.ip.ksm.ksmobjectapi.domain.objects.indicators.KSMIndicatorType;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by Scorpio on 05.09.2017.
@@ -60,7 +59,7 @@ public class KPI_Obj extends AIndicator implements KPI , EditableKPI {
     public void setRelatedCI(String ciKsmObjId) {
         /*TODO: IMPLEMENT!!*/
         logger.error("Method setRelatedCI(String ciKsmObjId) in KPI_Obj NOT Implemented YET");
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException("NOT Implemented YET");
 
     }
 

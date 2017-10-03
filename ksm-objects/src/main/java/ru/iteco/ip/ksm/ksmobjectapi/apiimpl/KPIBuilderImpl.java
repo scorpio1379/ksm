@@ -13,6 +13,7 @@ import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.UUID;
 
 /**
  * Created by Scorpio on 07.09.2017.
@@ -108,8 +109,10 @@ public class KPIBuilderImpl implements KPIBuilder , InitableKPIBuilder {
     }
 
     private KPI createNewKPI(){
+        /* TODO: проработать создание обьекта через метод соответствующем сервисе*/
         KPI_Obj tmpKPI = new KPI_Obj();
-        if (this.ksmObjId!=null) tmpKPI.setKsmObjId(this.ksmObjId);
+        /*TODO: КОСТЫЛЬ!!!!! нужно придумать как сделать caseInsensitive ksmObjID, если поле в GDB чувствительно к регистру*/
+        if (this.ksmObjId!=null) tmpKPI.setKsmObjId(UUID.fromString(this.ksmObjId).toString());
         if (this.name!=null)tmpKPI.setName(this.name);
         if (this.description!=null)tmpKPI.setDescription(this.description);
         if (this.value!=null)tmpKPI.setValue(this.value);

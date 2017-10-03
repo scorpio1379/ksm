@@ -48,4 +48,14 @@ public class   ARelationShip<STARTNODE extends IAObject, ENDNODE extends IAObjec
     public void setName(String name) {
 
     }
+
+    @Override
+    public String getDebugInfo() {
+        return null;
+    }
+
+    @Override
+    public void setDebugInfo(String debugInfo) {
+
+    }
 }

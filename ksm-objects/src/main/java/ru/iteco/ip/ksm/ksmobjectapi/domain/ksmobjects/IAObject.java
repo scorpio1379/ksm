@@ -18,4 +18,8 @@ public interface IAObject {
     String getName();
 
     void setName(String name);
+
+    String getDebugInfo();
+
+    void setDebugInfo(String debugInfo);
 }

@@ -11,6 +11,7 @@ import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.UUID;
 
 /**
  * Created by Scorpio on 06.09.2017.
@@ -73,14 +74,19 @@ public  class CIBuilderImpl implements CIBuilder {
         try(Transaction trn = this.ciSrvc.beginTransaction(Transaction.Type.READ_WRITE)) {
             CI tmpCi = null;
             if (this.ksmObjId != null) tmpCi = ciSrvc.find(ksmObjId);
+            /* TODO: проработать создание обьекта через метод соответствующем сервисе*/
             if (tmpCi == null) tmpCi = new CI_Obj(); //this.getNewCI_Obj();
             //this.ksmObjId==null ? (tmpci1 = this.getNewCI_Obj()) : (tmpci1 = ciSrvc.find(ksmObjId));
 
-            if (this.ksmObjId != null) ((CI_Obj) tmpCi).setKsmObjId(this.ksmObjId);
+
+            /* if (this.ksmObjId != null) ((CI_Obj) tmpCi).setKsmObjId(this.ksmObjId);*/
+            /*TODO: КОСТЫЛЬ!!!!! нужно придумать как сделать caseInsensitive ksmObjID, если поле в GDB чувствительно к регистру*/
+            if (this.ksmObjId != null) ((CI_Obj) tmpCi).setKsmObjId(UUID.fromString(this.ksmObjId).toString());
             if (this.name != null) tmpCi.setName(this.name);
             if (this.description != null) tmpCi.setDescription(this.description);
             if (this.ksmCiType != null) tmpCi.setKsmCiType(this.ksmCiType);
-            if (this.statusKPIksmObjId != null) tmpCi.setStatusKPIksmObjId(this.statusKPIksmObjId);
+             /*TODO: КОСТЫЛЬ!!!!! нужно придумать как сделать caseInsensitive statusKPIksmObjId, если поле в GDB чувствительно к регистру*/
+            if (this.statusKPIksmObjId != null) tmpCi.setStatusKPIksmObjId(UUID.fromString(this.statusKPIksmObjId).toString());
 
             CI returnrdCi = ciSrvc.createOrUpdate(tmpCi);
             trn.commit();

@@ -3,10 +3,12 @@ package ru.iteco.ip.ksm.shared.configmanagers;
 import org.slf4j.Logger;
 import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
 import ru.iteco.ip.ksm.shared.configmanagers.configurations.GDBConfig;
+import ru.iteco.ip.ksm.shared.configmanagers.configurations.KSMCoreApplicationConfig;
 import ru.iteco.ip.ksm.shared.configmanagers.configurations.Neo4JGDBConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +28,9 @@ public class KSMConfigurationManagerBean implements KSMConfigurationManager {
     private Logger logger;
 
     private GDBConfig gdbConfig;
+
+    @Inject @Default
+    private KSMCoreApplicationConfig ksmCoreApplicationConfig;
     public KSMConfigurationManagerBean() {
     }
 
@@ -67,6 +72,11 @@ public class KSMConfigurationManagerBean implements KSMConfigurationManager {
     @Override
     public GDBConfig getGDBConfiguration() {
         return this.gdbConfig;
+    }
+
+    @Override
+    public KSMCoreApplicationConfig getKSMCoreApplicationConfig() {
+        return this.ksmCoreApplicationConfig;
     }
 
     private void setGDBConfigFromProp(Properties properties){

@@ -15,6 +15,7 @@ public abstract class AIndicator extends AObject implements IAIndicator , Editab
     protected String status;
     protected KSMIndicatorType indicatorType;
     protected String description;
+    protected String chgTimeStamp;
 
 
     public AIndicator() {
@@ -53,5 +54,15 @@ public abstract class AIndicator extends AObject implements IAIndicator , Editab
     @Override
     public String getDescription() {
         return this.description;
+    }
+
+    @Override
+    public String getChgTimeStamp() {
+        return chgTimeStamp;
+    }
+
+    @Override
+    public void setChgTimeStamp(String chgTimeStamp) {
+        this.chgTimeStamp = chgTimeStamp;
     }
 }

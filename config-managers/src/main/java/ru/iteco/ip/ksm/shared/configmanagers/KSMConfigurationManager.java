@@ -1,6 +1,7 @@
 package ru.iteco.ip.ksm.shared.configmanagers;
 
 import ru.iteco.ip.ksm.shared.configmanagers.configurations.GDBConfig;
+import ru.iteco.ip.ksm.shared.configmanagers.configurations.KSMCoreApplicationConfig;
 
 import javax.ejb.Local;
 
@@ -10,4 +11,5 @@ import javax.ejb.Local;
 @Local
 public interface KSMConfigurationManager {
     GDBConfig getGDBConfiguration();
+    KSMCoreApplicationConfig getKSMCoreApplicationConfig();
 }

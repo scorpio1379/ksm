@@ -38,13 +38,9 @@
       <element id="archive" name="ksm-core-1.0-SNAPSHOT.jar">
         <element id="artifact" artifact-name="ksm-core:ejb exploded" />
       </element>
-      <element id="archive" name="config-managers-1.0-SNAPSHOT.jar">
-        <element id="artifact" artifact-name="config-managers:ejb exploded" />
-      </element>
-      <element id="archive" name="ksm-logger-1.0-SNAPSHOT.jar">
-        <element id="artifact" artifact-name="ksm-logger:ejb exploded" />
-      </element>
       <element id="directory" name="lib">
+        <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-all:2.1.6" />
+        <element id="library" level="project" name="Maven: ru.iteco.ip.ksm.shared:ksmevent:1.0-SNAPSHOT" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-ogm-bolt-driver:3.0.0-M02" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-ogm-api:3.0.0-M02" />
         <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.7.1" />
@@ -109,6 +105,12 @@
         <element id="library" level="project" name="Maven: io.github.lukehutch:fast-classpath-scanner:2.0.18" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-ogm-embedded-driver:3.0.0-M02" />
         <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+      </element>
+      <element id="archive" name="config-managers-1.0-SNAPSHOT.jar">
+        <element id="artifact" artifact-name="config-managers:ejb exploded" />
+      </element>
+      <element id="archive" name="ksm-logger-1.0-SNAPSHOT.jar">
+        <element id="artifact" artifact-name="ksm-logger:ejb exploded" />
       </element>
     </root>
   </artifact>

@@ -14,6 +14,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by Scorpio on 18.09.2017.
@@ -77,11 +78,13 @@ public class ServiceBuilderImpl implements ServiceBuilder {
             if (tmpCi == null) tmpCi = serviceSrvc.instansiateFromEntityType(); //this.getNewCI_Obj();
             //this.ksmObjId==null ? (tmpci1 = this.getNewCI_Obj()) : (tmpci1 = ciSrvc.find(ksmObjId));
 
-            if (this.ksmObjId != null) ((EditableAObj) tmpCi).setKsmObjId(this.ksmObjId);
+            /*TODO: КОСТЫЛЬ!!!!! нужно придумать как сделать caseInsensitive ksmObjID, если поле в GDB чувствительно к регистру*/
+            /*TODO: повторение кода с CIBuilder`а - надо переделать все билдеры*/
+            if (this.ksmObjId != null) ((EditableAObj) tmpCi).setKsmObjId(UUID.fromString(this.ksmObjId).toString());
             if (this.name != null) tmpCi.setName(this.name);
             if (this.description != null) tmpCi.setDescription(this.description);
             if (this.ksmCiType != null) tmpCi.setKsmCiType(this.ksmCiType);
-            if (this.statusKPIksmObjId != null) tmpCi.setStatusKPIksmObjId(this.statusKPIksmObjId);
+            if (this.statusKPIksmObjId != null) tmpCi.setStatusKPIksmObjId(UUID.fromString(this.statusKPIksmObjId).toString());
 
             Service returnrdCi = serviceSrvc.createOrUpdate(tmpCi);
             trn.commit();

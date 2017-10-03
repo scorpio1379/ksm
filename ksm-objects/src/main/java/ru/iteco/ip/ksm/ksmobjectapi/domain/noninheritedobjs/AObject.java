@@ -27,6 +27,7 @@ public abstract class AObject implements IAObject ,EditableAObj,Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     protected String ksmObjId;
     protected KSMObjectType ksmObjType;
+    protected String debugInfo;
 
 
     protected String name;
@@ -66,5 +67,15 @@ public abstract class AObject implements IAObject ,EditableAObj,Serializable {
     @Override
     public void setKsmObjId(String ksmObjId) {
         this.ksmObjId = ksmObjId;
+    }
+
+    @Override
+    public String getDebugInfo() {
+        return debugInfo;
+    }
+
+    @Override
+    public void setDebugInfo(String debugInfo) {
+        this.debugInfo = debugInfo;
     }
 }

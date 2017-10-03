@@ -17,6 +17,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by administrator on 29.06.2017.
@@ -113,7 +114,9 @@ public class KSMObjectApiBean implements IKSMObjectApiRemote , IKSMObjectApiLoca
 
     @Override
     public void linkCIToCI(String startCIiD, String endCiId , String CI2CIRelationShipType ) {
-        ci2CILinker.setStartCI(ciBuilder.get(startCIiD)).setEndCI(ciBuilder.get(endCiId)).build();
+        /*TODO: КОСТЫЛЬ!!!!! нужно придумать как сделать caseInsensitive ksmObjID, если поле в GDB чувствительно к регистру*/
+
+        ci2CILinker.setStartCI(ciBuilder.get(UUID.fromString(startCIiD).toString())).setEndCI(ciBuilder.get(UUID.fromString(endCiId).toString())).build();
 
 
     }

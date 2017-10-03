@@ -4,6 +4,7 @@ import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.neo4j.graphdb.factory.GraphDatabaseSettings;
 import org.slf4j.Logger;
+import ru.iteco.ip.ksm.core.internal.gdbseventhandlers.HIStateChangeTransactionEventHandler;
 import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
 import ru.iteco.ip.ksm.shared.configmanagers.GDBType;
 import ru.iteco.ip.ksm.shared.configmanagers.KSMConfigurationManager;
@@ -37,7 +38,13 @@ public class KSMCoreInitializerBean {
     private Logger logger;
 
     private GraphDatabaseService gdbs;
+    private HIStateChangeTransactionEventHandler hiStateChangeTransactionEventHandler;
 
+
+    @Inject
+    public KSMCoreInitializerBean(@Default HIStateChangeTransactionEventHandler hiStateChangeTransactionEventHandler) {
+        this.hiStateChangeTransactionEventHandler =hiStateChangeTransactionEventHandler;
+    }
 
     public KSMCoreInitializerBean() {
     }
@@ -47,6 +54,8 @@ public class KSMCoreInitializerBean {
         GDBConfig gdbConfig = ksmCfgMgr.getGDBConfiguration();
         if(gdbConfig.getGdbType().equals(GDBType.Neo4J)){
             this.gdbs = initNeo4JDB((Neo4JGDBConfiguration) gdbConfig);
+            /* регестрируем обработчики Transaction Event`ов*/
+            this.gdbs.registerTransactionEventHandler( hiStateChangeTransactionEventHandler );
             if (this.gdbs == null){
                 logger.error("GraphDatabaseService not inited");
                 throw new IllegalArgumentException("GraphDatabaseService not inited");
@@ -130,7 +139,7 @@ public class KSMCoreInitializerBean {
 
     }
 
-    @Produces
+    @Produces @Default
     public GraphDatabaseService getGDBS(){
         return this.gdbs;
     }

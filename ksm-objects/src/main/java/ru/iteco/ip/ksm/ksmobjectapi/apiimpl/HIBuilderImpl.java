@@ -13,6 +13,7 @@ import ru.iteco.ip.ksm.logger.annotations.DefaultKSMLogger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.UUID;
 
 /**
  * Created by Scorpio on 09.09.2017.
@@ -128,8 +129,11 @@ public class HIBuilderImpl implements HIBuilder, InitableHIBuilder {
     }
 
     private HI createNewHI(){
+        /* TODO: проработать создание обьекта через метод соответствующем сервисе*/
         HI_Obj tmpHI = new HI_Obj();
-        if (this.ksmObjId!=null) tmpHI.setKsmObjId(this.ksmObjId);
+        //if (this.ksmObjId!=null) tmpHI.setKsmObjId(this.ksmObjId);
+        /*TODO: КОСТЫЛЬ!!!!! нужно придумать как сделать caseInsensitive ksmObjID, если поле в GDB чувствительно к регистру*/
+        if (this.ksmObjId!=null) tmpHI.setKsmObjId(UUID.fromString(this.ksmObjId).toString());
         if (this.name!=null)tmpHI.setName(this.name);
         if (this.description!=null)tmpHI.setDescription(this.description);
         if (this.value!=null)tmpHI.setValue(this.value);

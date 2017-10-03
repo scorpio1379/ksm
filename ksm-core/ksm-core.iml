@@ -85,5 +85,7 @@
     <orderEntry type="module" module-name="config-managers" />
     <orderEntry type="module" module-name="ksm-logger" />
     <orderEntry type="module" module-name="ksm-objects" />
+    <orderEntry type="library" name="Maven: ru.iteco.ip.ksm.shared:ksmevent:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-all:2.1.6" level="project" />
   </component>
 </module>

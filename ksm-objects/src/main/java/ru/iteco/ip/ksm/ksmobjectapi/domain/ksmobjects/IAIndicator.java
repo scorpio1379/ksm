@@ -19,4 +19,8 @@ public interface IAIndicator extends IAObject {
     //void setIndicatorType(KSMIndicatorType indicatorType);
 
     void setDescription(String description);
+
+    String getChgTimeStamp();
+
+    void setChgTimeStamp(String chgTimeStamp);
 }

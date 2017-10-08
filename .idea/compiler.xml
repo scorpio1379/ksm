@@ -9,16 +9,24 @@
         <module name="config-managers" />
         <module name="ksm-app" />
         <module name="ksm-core" />
+        <module name="ksm-filewatcher-ra" />
+        <module name="ksm-filewatcher-rar" />
+        <module name="ksm-filewhatcher-ra" />
         <module name="ksm-logger" />
         <module name="ksm-objects" />
         <module name="ksm-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="calculationrulesscripts" target="1.8" />
       <module name="config-managers" target="1.8" />
+      <module name="filechangewatcher" target="1.8" />
       <module name="ksm" target="1.8" />
       <module name="ksm-app" target="1.8" />
       <module name="ksm-core" target="1.8" />
+      <module name="ksm-filewatcher-ra" target="1.8" />
+      <module name="ksm-filewatcher-rar" target="1.8" />
+      <module name="ksm-filewhatcher-ra" target="1.8" />
       <module name="ksm-logger" target="1.8" />
       <module name="ksm-objects" target="1.8" />
       <module name="ksm-web" target="1.8" />

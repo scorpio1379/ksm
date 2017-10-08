@@ -14,6 +14,8 @@
         <module>ksm-core</module>
         <module>config-managers</module>
         <module>ksm-logger</module>
+        <module>ksm-filewatcher-ra</module>
+        <module>ksm-filewatcher-rar</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -137,6 +139,57 @@
                 <groupId>ru.iteco.ip.ksm.shared</groupId>
                 <artifactId>ksmevent</artifactId>
                 <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.jaxrs/jackson-jaxrs-xml-provider-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-xml-provider</artifactId>
+                <version>2.8.9</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-json-provider</artifactId>
+                <version>2.8.9</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.iteco.ip.ksm</groupId>
+                <artifactId>ksm-web</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>ru.iteco.ip.ksm</groupId>
+                <artifactId>ksm-objects</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>ru.iteco.ip.ksm</groupId>
+                <artifactId>ksm-core</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>ru.iteco.ip.ksm</groupId>
+                <artifactId>config-managers</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>ru.iteco.ip.ksm</groupId>
+                <artifactId>ksm-logger</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>ru.iteco.ip.ksm</groupId>
+                <artifactId>ksm-filewatcher-rar</artifactId>
+                <version>${project.version}</version>
+                <type>rar</type>
             </dependency>
 
         </dependencies>

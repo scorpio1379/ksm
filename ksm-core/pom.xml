@@ -43,17 +43,17 @@
         <dependency>
             <groupId>ru.iteco.ip.ksm</groupId>
             <artifactId>config-managers</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>ru.iteco.ip.ksm</groupId>
             <artifactId>ksm-logger</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>ru.iteco.ip.ksm</groupId>
             <artifactId>ksm-objects</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>ru.iteco.ip.ksm.shared</groupId>
@@ -63,6 +63,21 @@
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>2.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.iteco.ip.ksm</groupId>
+            <artifactId>ksm-filewatcher-rar</artifactId>
+            <type>rar</type>
+        </dependency>
+        <dependency>
+            <groupId>ru.iteco.ip.ksm</groupId>
+            <artifactId>ksm-filewatcher-ra</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.ejb3</groupId>
+            <artifactId>jboss-ejb3-ext-api</artifactId>
+            <version>2.2.0.Final</version>
         </dependency>
     </dependencies>
     <build>
@@ -74,11 +89,6 @@
                 <version>${version.ejb.plugin}</version>
                 <configuration>
                     <ejbVersion>3.2</ejbVersion>
-                    <archive>
-                        <manifestEntries>
-                            <Class-Path>calcrules</Class-Path>
-                        </manifestEntries>
-                    </archive>
                 </configuration>
             </plugin>
             <!--<plugin>

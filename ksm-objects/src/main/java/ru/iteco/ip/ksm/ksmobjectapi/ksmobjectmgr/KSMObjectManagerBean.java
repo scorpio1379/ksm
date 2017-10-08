@@ -15,9 +15,6 @@ import java.util.Set;
 public class KSMObjectManagerBean implements KSMObjectManager{
     @Inject
     private CISrvc ksmciService;
-    //@Inject
-    //private KSMCIServiceINHINF<KSMCI> ksmciServic2;
-    //@Inject
     private KSMServiceService ksmServiceService;
     
 

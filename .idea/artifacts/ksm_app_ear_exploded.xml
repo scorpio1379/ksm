@@ -7,28 +7,14 @@
         <element id="file-copy" path="$PROJECT_DIR$/ksm-app/target/ksm-app/META-INF/MANIFEST.MF" />
       </element>
       <element id="dir-copy" path="$PROJECT_DIR$/ksm-app/src/main/application" />
-      <element id="directory" name="ksm-web-1.0-SNAPSHOT.war">
+      <element id="archive" name="ksm-web-1.0-SNAPSHOT.war">
         <element id="directory" name="WEB-INF">
           <element id="directory" name="classes">
             <element id="module-output" name="ksm-web" />
           </element>
-          <element id="directory" name="lib">
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.3.2" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.3.2" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.3.2" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:2.8.9" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.8.9" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.9" />
-            <element id="library" level="project" name="Maven: com.fasterxml.woodstox:woodstox-core:5.0.3" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.9" />
-            <element id="library" level="project" name="Maven: org.codehaus.woodstox:stax2-api:3.1.4" />
-            <element id="library" level="project" name="Maven: org.codehaus.woodstox:woodstox-core-asl:4.4.1" />
-            <element id="library" level="project" name="Maven: javax.xml.stream:stax-api:1.0-2" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.8.9" />
-          </element>
         </element>
         <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/ksm-app/target/temp/ksm-web/META-INF/SKINNY_MANIFEST.MF" output-file-name="MANIFEST.MF" />
+          <element id="file-copy" path="$PROJECT_DIR$/ksm-web/target/ksm-web/META-INF/MANIFEST.MF" />
         </element>
         <element id="javaee-facet-resources" facet="ksm-web/web/Web" />
       </element>
@@ -40,6 +26,9 @@
       </element>
       <element id="directory" name="lib">
         <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-all:2.1.6" />
+        <element id="archive" name="ksm-filewatcher-ra-1.0-SNAPSHOT.jar">
+          <element id="module-output" name="ksm-filewatcher-ra" />
+        </element>
         <element id="library" level="project" name="Maven: ru.iteco.ip.ksm.shared:ksmevent:1.0-SNAPSHOT" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-ogm-bolt-driver:3.0.0-M02" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-ogm-api:3.0.0-M02" />
@@ -111,6 +100,9 @@
       </element>
       <element id="archive" name="ksm-logger-1.0-SNAPSHOT.jar">
         <element id="artifact" artifact-name="ksm-logger:ejb exploded" />
+      </element>
+      <element id="archive" name="ksm-filewatcher-rar-1.0-SNAPSHOT.rar">
+        <element id="module-output" name="ksm-filewatcher-rar" />
       </element>
     </root>
   </artifact>

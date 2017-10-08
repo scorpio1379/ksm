@@ -5,7 +5,6 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import java.io.File;
-import java.io.InputStream;
 
 /**
  * Created by Scorpio on 03.10.2017.
@@ -13,15 +12,15 @@ import java.io.InputStream;
 @Singleton
 @Startup
 public class KPICalculationRulesLoaderBean {
+    private static final String CALC_RULES_SCRIPT_DIR =  System.getProperty("jboss.server.data.dir") + File.separator + "ksm" + File.separator+"calcrulesscripts";
 
     public KPICalculationRulesLoaderBean() {
     }
     @PostConstruct
     private void initKPICalculationRulesLoaderBean(){
         System.out.println("--------------------------------------------");
-        InputStream a = Thread.currentThread().getContextClassLoader().getResourceAsStream("KPICalculatationRule.groovy");
-        InputStream b = Thread.currentThread().getContextClassLoader().getResourceAsStream("calcrulesscripts/KPICalculatationRule.groovy");
-        InputStream c = Thread.currentThread().getContextClassLoader().getResourceAsStream("/calcrulesscripts/KPICalculatationRule.groovy");
+        File path = new File (CALC_RULES_SCRIPT_DIR);
+        if (!path.exists()) path.mkdir();
         System.out.println(new File("./calcrulesscripts").getAbsolutePath());
         System.out.println("--------------------------------------------");
 

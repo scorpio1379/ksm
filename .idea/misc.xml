@@ -9,6 +9,7 @@
     <file type="ejb" url="file://$PROJECT_DIR$/ksm-logger" />
     <file type="ejb" url="file://$PROJECT_DIR$/ksm-objects" />
     <file type="javaeeApplication" url="file://$PROJECT_DIR$/ksm-app" />
+    <file type="web" url="file://$PROJECT_DIR$/calculationrulesscripts" />
     <file type="web" url="file://$PROJECT_DIR$/ksm-web" />
   </component>
   <component name="MavenProjectsManager">
@@ -16,6 +17,12 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/calculationrulesscripts/pom.xml" />
+        <option value="$PROJECT_DIR$/filechangewatcher/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">

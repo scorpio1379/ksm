@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="calculationrulesscripts:war">
+    <output-path>$PROJECT_DIR$/calculationrulesscripts/target</output-path>
+    <root id="archive" name="calculationrulesscripts.war">
+      <element id="artifact" artifact-name="calculationrulesscripts:war exploded" />
+    </root>
+  </artifact>
+</component>

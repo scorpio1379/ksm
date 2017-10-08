@@ -92,17 +92,17 @@
     <orderEntry type="module" module-name="ksm-logger" scope="PROVIDED" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.0_spec:1.0.0.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.jboss.resteasy:resteasy-jackson2-provider:3.0.8.Final" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.3.2" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.3.2" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.3.2" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:2.8.9" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.8.9" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.9" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.woodstox:woodstox-core:5.0.3" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.9" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.woodstox:stax2-api:3.1.4" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.woodstox:woodstox-core-asl:4.4.1" level="project" />
-    <orderEntry type="library" name="Maven: javax.xml.stream:stax-api:1.0-2" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.8.9" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-core:2.3.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.3.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.3.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:2.8.9" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.8.9" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.9" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.woodstox:woodstox-core:5.0.3" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.9" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.codehaus.woodstox:stax2-api:3.1.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.codehaus.woodstox:woodstox-core-asl:4.4.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.xml.stream:stax-api:1.0-2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.8.9" level="project" />
   </component>
 </module>

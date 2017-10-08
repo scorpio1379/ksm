@@ -22,6 +22,8 @@
       <set>
         <option value="$PROJECT_DIR$/calculationrulesscripts/pom.xml" />
         <option value="$PROJECT_DIR$/filechangewatcher/pom.xml" />
+        <option value="$PROJECT_DIR$/ksm-filewatcher-ra/pom.xml" />
+        <option value="$PROJECT_DIR$/ksm-filewatcher-rar/pom.xml" />
       </set>
     </option>
   </component>

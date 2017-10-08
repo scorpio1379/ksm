@@ -9,8 +9,6 @@
         <module name="config-managers" />
         <module name="ksm-app" />
         <module name="ksm-core" />
-        <module name="ksm-filewatcher-ra" />
-        <module name="ksm-filewatcher-rar" />
         <module name="ksm-filewhatcher-ra" />
         <module name="ksm-logger" />
         <module name="ksm-objects" />

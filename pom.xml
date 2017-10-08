@@ -185,12 +185,7 @@
                 <version>${project.version}</version>
                 <type>ejb</type>
             </dependency>
-            <dependency>
-                <groupId>ru.iteco.ip.ksm</groupId>
-                <artifactId>ksm-filewatcher-rar</artifactId>
-                <version>${project.version}</version>
-                <type>rar</type>
-            </dependency>
+
 
         </dependencies>
     </dependencyManagement>

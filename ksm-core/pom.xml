@@ -43,17 +43,17 @@
         <dependency>
             <groupId>ru.iteco.ip.ksm</groupId>
             <artifactId>config-managers</artifactId>
-            <version>${project.version}</version>
+            <type>ejb</type>
         </dependency>
         <dependency>
             <groupId>ru.iteco.ip.ksm</groupId>
             <artifactId>ksm-logger</artifactId>
-            <version>${project.version}</version>
+            <type>ejb</type>
         </dependency>
         <dependency>
             <groupId>ru.iteco.ip.ksm</groupId>
             <artifactId>ksm-objects</artifactId>
-            <version>${project.version}</version>
+            <type>ejb</type>
         </dependency>
         <dependency>
             <groupId>ru.iteco.ip.ksm.shared</groupId>
@@ -63,16 +63,6 @@
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>2.1.6</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.iteco.ip.ksm</groupId>
-            <artifactId>ksm-filewatcher-rar</artifactId>
-            <type>rar</type>
-        </dependency>
-        <dependency>
-            <groupId>ru.iteco.ip.ksm</groupId>
-            <artifactId>ksm-filewatcher-ra</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.ejb3</groupId>

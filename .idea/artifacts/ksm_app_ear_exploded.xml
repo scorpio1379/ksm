@@ -26,9 +26,6 @@
       </element>
       <element id="directory" name="lib">
         <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-all:2.1.6" />
-        <element id="archive" name="ksm-filewatcher-ra-1.0-SNAPSHOT.jar">
-          <element id="module-output" name="ksm-filewatcher-ra" />
-        </element>
         <element id="library" level="project" name="Maven: ru.iteco.ip.ksm.shared:ksmevent:1.0-SNAPSHOT" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-ogm-bolt-driver:3.0.0-M02" />
         <element id="library" level="project" name="Maven: org.neo4j:neo4j-ogm-api:3.0.0-M02" />
@@ -100,9 +97,6 @@
       </element>
       <element id="archive" name="ksm-logger-1.0-SNAPSHOT.jar">
         <element id="artifact" artifact-name="ksm-logger:ejb exploded" />
-      </element>
-      <element id="archive" name="ksm-filewatcher-rar-1.0-SNAPSHOT.rar">
-        <element id="module-output" name="ksm-filewatcher-rar" />
       </element>
     </root>
   </artifact>

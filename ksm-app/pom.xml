@@ -55,11 +55,6 @@
             <artifactId>ksmevent</artifactId>
         </dependency>
         <dependency>
-            <groupId>ru.iteco.ip.ksm</groupId>
-            <artifactId>ksm-filewatcher-rar</artifactId>
-            <type>rar</type>
-        </dependency>
-        <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-bolt-driver</artifactId>
             <scope>compile</scope>
